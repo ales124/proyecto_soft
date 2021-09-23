@@ -55,7 +55,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    hola mundito 2
+                                    hola mundito 2222222222222
                                 </div>
                             </div>
                         </div>
