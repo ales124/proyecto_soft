@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\DisabledUserController;
+use App\Http\Controllers\UsuarioController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +24,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('carrera', CarreraController::class,['middleware'=>'auth']);
