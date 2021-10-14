@@ -13,7 +13,7 @@
 
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form method="POST" action="{{ route('changepassword') }}">
+                    <form method="POST" action="{{ route('changePassword') }}">
                         @csrf
                         <input type="hidden" name="id" id="id" value="{{Auth::user()->id}}">
                         <div class="form-group">
