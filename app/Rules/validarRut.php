@@ -35,6 +35,6 @@ class validarRut implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'El rut es erroneo o no existe';
     }
 }
