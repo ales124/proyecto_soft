@@ -25,8 +25,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->enum('rol',['Administrador','Jefe Carrera', 'Alumno']);
 
-            $table->unsignedBigInteger('carreras_id')->nullable(); //nullable pq hay usuarios que no tienen carrera (admin y jefe)
-            $table->foreign('carreras_id')->references('id')->on('carreras');
+            $table->unsignedBigInteger('carrera_id')->nullable(); //nullable pq hay usuarios que no tienen carrera (admin y jefe)
+            $table->foreign('carrera_id')->references('id')->on('carreras');
 
         });
     }

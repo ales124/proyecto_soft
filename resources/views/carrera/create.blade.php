@@ -43,7 +43,7 @@
 
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button id="boton" class="btn btn-outline-primary">{{ __('Agregar') }}</button>
+                                <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar') }}</button>
                             </div>
                         </div>
                     </form>
@@ -52,7 +52,6 @@
             <div class="col-lg-3 col-md-2"></div>
         </div>
     </div>
-
     <script>
         const button = document.getElementById('boton');
         const form = document.getElementById('formulario')
@@ -74,6 +73,7 @@
             })
         })
     </script>
+
     @else
 @php
 header("Location: /home" );
