@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCarrerasTable extends Migration
 {
-    /**
-     * Run the migrations.
+    /* Run the migrations.
      *
      * @return void
      */
@@ -15,12 +14,13 @@ class CreateCarrerasTable extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
+            $table->integer('codigo');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
+    /* Reverse the migrations.
      *
      * @return void
      */

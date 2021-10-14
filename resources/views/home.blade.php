@@ -22,7 +22,7 @@
                     <small class="text-muted">Permite crear y/o editar carreras en el sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="/carrera" class="btn btn-info btn-block">IR</a>
                 </div>
             </div>
         </div>
