@@ -9,21 +9,21 @@
    </div>
 @endif
 <div class="container">
+
     <div class="row mb-3">
-        <div class="col col-2">
-            <form method="GET" action="{{ route('carrera.index') }}">
-                <input type="text" name="search" id="search" placeholder="Buscar por codigo">
-                <button class="btn btn-success">buscar</button>
-            </form>
-        </div>
+
         <div class="col col-8">
-            <p class="text-center" style="font-size: x-large">Gestión de carreras</p>
+            <p class="text-center" style="font-size: x-large">Administrar carreras</p>
         </div>
         <div class="col col-2">
-            <a class="btn btn-success btn-block" href="carrera/create"> <i class="fas fa-plus"></i> Carrera</a>
+            <a class="btn btn-success btn-block" href="carrera/create"> <i class="fas fa-plus"></i> Agregar</a>
         </div>
+        <div class="col col-2">
+            <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+        </div>
+
     </div>
-    <table class="table table-dark">
+    <table class="table table-white">
         <thead>
             <tr>
                 <th style="width: 10%" scope="col">Código</th>

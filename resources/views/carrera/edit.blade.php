@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <label class="form-control-label">CÓDIGO</label>
                             <input value={{$carrera->codigo}} id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror"
-                                name="codigo" required>
+                                name="codigo" required readonly>
 
                             @error('codigo')
                             <span class="invalid-feedback" role="alert">
@@ -43,7 +43,12 @@
 
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                                <button type="submit" class="btn btn-outline-primary">{{ __('Confirmar') }}</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 py-3">
+                            <div class="col-lg-12 text-center">
+                                <a href="http://127.0.0.1:8000/carrera" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
                             </div>
                         </div>
                     </form>

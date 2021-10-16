@@ -20,7 +20,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="form-control-label">CÓDIGO</label>
-                            <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror"
+                            <input id="codigo" type="numeric" class="form-control @error('codigo') is-invalid @enderror"
                                 name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus>
 
                             @error('codigo')
@@ -46,6 +46,15 @@
                                 <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar') }}</button>
                             </div>
                         </div>
+
+                        <div class="col-lg-12 py-3">
+                            <div class="col-lg-12 text-center">
+                                <a href="http://127.0.0.1:8000/carrera" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                            </div>
+                        </div>
+
+
+
                     </form>
                 </div>
             </div>
@@ -58,10 +67,10 @@
         button.addEventListener('click', function(e){
             e.preventDefault();
             Swal.fire({
-                title: 'Estas seguro que quieres agregar la carrera?, esta acción es irreversible',
+                title: 'Una vez creada la carrera, esta no se podrá eliminar. ¿Quieres continuar?',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Guardar',
+                confirmButtonText: 'Aceptar',
                 denyButtonText: `Cancelar`,
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */

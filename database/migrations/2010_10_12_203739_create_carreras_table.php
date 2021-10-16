@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+
 
 class CreateCarrerasTable extends Migration
 {
@@ -11,15 +13,21 @@ class CreateCarrerasTable extends Migration
      *
      * @return void
      */
+
+
     public function up()
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->integer('codigo')->unique();
             $table->string('nombre');
             $table->timestamps();
+
         });
+
     }
+
+
 
     /**
      * Reverse the migrations.

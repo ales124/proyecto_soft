@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrera;
+use App\Rules\validarCodigo;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Validator;
 
 class CarreraController extends Controller
@@ -31,6 +33,7 @@ class CarreraController extends Controller
      */
     public function create()
     {
+
         return view('carrera.create');
     }
 
@@ -42,9 +45,10 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'codigo' => 'regex:/[1-9]/',
-            'nombre' => 'regex:/[A-z]/'
+            'codigo' => 'regex:/[1-9]/|unique:carreras|min:4|max:4|regex:/^[1-9]/',
+            'nombre' => 'regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'
         ]);
 
         Carrera::create([
@@ -53,6 +57,7 @@ class CarreraController extends Controller
         ]);
 
         return redirect('/carrera')->with('success','Carrera creada con exito');
+
     }
 
     /**
@@ -74,7 +79,9 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
+
         return view('carrera.edit')->with('carrera',$carrera);
+
     }
 
     /**
@@ -86,7 +93,8 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        $request->validate(['codigo' => 'regex:/[0-9]/']);
+        $request->validate(['codigo' => 'regex:/[0-9]/',new validarCodigo]);
+        $request->validate(['nombre' => 'regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/']);
 
         $carrera->nombre = $request->nombre;
         $carrera->codigo = $request->codigo;
