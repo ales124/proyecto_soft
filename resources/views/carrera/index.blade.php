@@ -1,7 +1,3 @@
-index.blade.php
-edit.blade.php
-create.blade.php
-----------
 @extends('layouts.app')
 
 @section('content')
