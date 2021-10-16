@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -13,11 +14,11 @@
 
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form method="POST" action="{{ route('changePassword') }}">
+                    <form method="POST" action="{{ route('changepassword') }}">
                         @csrf
                         <input type="hidden" name="id" id="id" value="{{Auth::user()->id}}">
                         <div class="form-group">
-                            <label class="form-control-label">Contraseña</label>
+                            <label class="form-control-label">Contraseña Nueva</label>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="new-password">
