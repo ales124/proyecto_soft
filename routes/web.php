@@ -3,7 +3,7 @@
 use App\Http\Controllers\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\CarreraController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +30,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/change-password',[ChangePasswordController::class, 'changePassword'])->name('changepassword');
+Route::resource('carrera', CarreraController::class,['middleware'=>'auth']);
