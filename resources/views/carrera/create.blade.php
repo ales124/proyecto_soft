@@ -11,7 +11,7 @@
                 <i class="fas fa-chalkboard-teacher"></i>
             </div>
             <div class="col-lg-12 login-title">
-                CREAR CARRERA
+                CREAR CARRERAS
             </div>
 
             <div class="col-lg-12 login-form">
