@@ -43,7 +43,7 @@
 
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar') }}</button>
+                                <button type="submit" id="button" class="btn btn-outline-primary">{{ __('Agregar') }}</button>
                             </div>
                         </div>
 
