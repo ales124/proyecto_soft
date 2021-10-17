@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th style="width: 10%" scope="col">Rut</th>
+                <th style="width: 10%" scope="col">fecha/hora creacion</th>
                 <th style="width: 25%" scope="col">Nombre</th>
                 <th style="width: 25%" scope="col">Email</th>
                 <th style="width: 20%" scope="col">Rol</th>
@@ -32,6 +33,7 @@
             @foreach ($usuarios as $usuario)
             <tr>
                 <th scope="row">{{$usuario->rut}}</th>
+                <td>{{$usuario->created_at}}</td>
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
                 <td>{{$usuario->rol}}</td>
