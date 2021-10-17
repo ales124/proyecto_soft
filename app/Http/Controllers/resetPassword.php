@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class resetPassword extends Controller
 {
@@ -23,14 +24,26 @@ class resetPassword extends Controller
         $nuevaContraseña = substr($usuario->rut, 0, 6);
 
 
+
         if($usuario->rol=="Administrador"){
             Auth::logout();
+            $usuario->password = $nuevaContraseña;
+            $usuario->update(['password' => Hash::make($usuario->password)]);
+
+            $usuario->save();
+            return redirect('/usuario');
+        }else{
+
+
+            $usuario->password = $nuevaContraseña;
+            $usuario->update(['password' => Hash::make($usuario->password)]);
+
+            $usuario->save();
+            return redirect('/usuario');
         }
 
 
-        $usuario->password = $nuevaContraseña;
-        $request->session()->regenerateToken();
-        $usuario->save();
-        return redirect('/usuario');
+
+
     }
 }
