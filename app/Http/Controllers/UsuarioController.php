@@ -48,7 +48,8 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
+
         $request->validate([
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255','unique:users'],
@@ -57,7 +58,7 @@ class UsuarioController extends Controller
             'carrera' =>['exists:App\Models\Carrera,id']
         ]);
 
-        $nuevaContraseña = substr('rut',-3); //No se si acortará el rut pero se intenta
+        $nuevaContraseña = substr($request->rut,0,6); //No se si acortará el rut pero se intenta
 
         $nuevoUsuario = User::create([
             'name' => $request->name,

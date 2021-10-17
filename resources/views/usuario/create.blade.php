@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="form-control-label" style="color:black">Rol</label>
                             <select class="form-control" name="rol" id="rol">
-                                <option value="Jefe Carrera">Jefe de carrera</option>
+                                <option value="Jefe de Carrera">Jefe de carrera</option>
                                 <option value="Alumno">Alumno</option>
                             </select>
                         </div>
@@ -97,9 +97,9 @@
             })
         }
         rolSelect.addEventListener('change', function(e){
-            if (rolSelect.value === 'Jefe Carrera') {
+            if (rolSelect.value === 'Jefe de Carrera') {
             carreraSelect.value = null;
-            carreraSelect.disabled = true;
+            carreraSelect.disabled = false;
             }else{
                 carreraSelect.disabled = false;
             }
