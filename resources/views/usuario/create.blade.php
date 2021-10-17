@@ -62,7 +62,7 @@
 
                         <div class="form-group">
                             <label for="form-control-label" style="color:black">Carrera</label>
-                            <select class="form-control" name="carrera" id="carrera" disabled>
+                            <select class="form-control" name="carrera" id="carrera" >
                                 <option value={{null}}>Seleccione carrera</option>
                                 @foreach ($carreras as $carrera)
                                 <option value={{$carrera->id}}>{{$carrera->nombre}}</option>
@@ -98,8 +98,11 @@
         }
         rolSelect.addEventListener('change', function(e){
             if (rolSelect.value === 'Jefe de Carrera') {
-            carreraSelect.value = null;
+
+
+
             carreraSelect.disabled = false;
+
             }else{
                 carreraSelect.disabled = false;
             }

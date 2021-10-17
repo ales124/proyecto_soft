@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\DeshabilitarUsuarioController;
+use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -36,3 +37,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/change-password',[ChangePasswordController::class, 'changePassword'])->name('changepassword');
 Route::resource('carrera', CarreraController::class,['middleware'=>'auth']);
 Route::get('/status-user-change', [DeshabilitarUsuarioController::class, 'deshabilitarUsuario'])->name('changeStatus');
+Route::get('/resetPassword', [resetPassword::class, 'resetearContraseña'])->name('resetPassword');
