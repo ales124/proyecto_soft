@@ -43,7 +43,9 @@
                 @endif
 
                 <td><a class="btn btn-danger" href={{ route('resetPassword', ['id' => $usuario]) }}>reiniciar clave</a></td>
-            </tr>
+
+
+        </tr>
             @endforeach
         </tbody>
     </table>

@@ -12,14 +12,25 @@ class DeshabilitarUsuarioController extends Controller
     }
     public function deshabilitarUsuario(Request $request){
         $usuario = User::where('id',$request->id)->get()->first();
-        if($usuario->status === 0){
-            $usuario->status = 1;
-            $usuario->save();
+        if($usuario->rol=="Administrador"){
+
             return redirect('/usuario');
-        }else{
-            $usuario->status = 0;
-            $usuario->save();
-            return redirect('/usuario');
+
+
         }
-    }
+
+        else{
+            if ($usuario->status === 0) {
+                $usuario->status = 1;
+                $usuario->save();
+                return redirect('/usuario');
+            } else {
+                $usuario->status = 0;
+                $usuario->save();
+                return redirect('/usuario');
+            }
+        }
+
+
+    }//final func
 }
