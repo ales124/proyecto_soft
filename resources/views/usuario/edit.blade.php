@@ -76,6 +76,11 @@
                                 <button type="submit" class="btn btn-outline-primary">{{ __('Actualizar') }}</button>
                             </div>
                         </div>
+                        <div class="col-lg-12 py-3">
+                            <div class="col-lg-12 text-center">
+                                <a href="http://127.0.0.1:8000/usuario" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

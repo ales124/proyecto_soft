@@ -7,6 +7,11 @@
     <div class="row mb-3">
         <div class="col col-2">
             <form method="GET" action="{{ route('usuario.index') }}">
+                <div class="col-lg-12 py-3">
+                    <div class="col-lg-12 text-center">
+                        <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                    </div>
+                </div>
                 <input type="text" name="search" id="search" placeholder="Buscar por Rut">
                 <button class="btn btn-success">buscar</button>
             </form>
@@ -22,7 +27,7 @@
         <thead>
             <tr>
                 <th style="width: 10%" scope="col">Rut</th>
-                <th style="width: 10%" scope="col">fecha/hora creacion</th>
+                <th style="width: 20%" scope="col">Fecha/Hora Creacion</th>
                 <th style="width: 25%" scope="col">Nombre</th>
                 <th style="width: 25%" scope="col">Email</th>
                 <th style="width: 20%" scope="col">Rol</th>
@@ -37,7 +42,7 @@
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
                 <td>{{$usuario->rol}}</td>
-                <td><a class="btn btn-info" href={{ route('usuario.edit', [$usuario]) }}>editar</a></td>
+
                 @if ($usuario->status === 1)
                     <td><a class="btn btn-warning" href={{ route('changeStatus', ['id' => $usuario]) }}>deshabilitar</a></td>
                 @else

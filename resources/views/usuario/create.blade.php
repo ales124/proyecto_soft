@@ -75,6 +75,11 @@
                                 <button type="submit" class="btn btn-outline-primary">{{ __('Register') }}</button>
                             </div>
                         </div>
+                        <div class="col-lg-12 py-3">
+                            <div class="col-lg-12 text-center">
+                                <a href="http://127.0.0.1:8000/usuario" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -86,7 +91,7 @@
         const carreraSelect = document.getElementById('carrera')
         //variable de carreras desde el controlador de carreras
         const listaCarreras = {!! json_encode($carreras) !!}
-        if (listaCarreras.length === 2) {
+        if (listaCarreras.length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -97,15 +102,9 @@
             })
         }
         rolSelect.addEventListener('change', function(e){
-            if (rolSelect.value === 'Jefe de Carrera') {
 
-
-
+            carreraSelect.value=null;
             carreraSelect.disabled = false;
-
-            }else{
-                carreraSelect.disabled = false;
-            }
         })
     </script>
 
