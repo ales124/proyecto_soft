@@ -62,7 +62,7 @@
         </div>
     </div>
     <script>
-        const button = document.getElementById('boton');
+        const button = document.getElementById('button');
         const form = document.getElementById('formulario')
         button.addEventListener('click', function(e){
             e.preventDefault();

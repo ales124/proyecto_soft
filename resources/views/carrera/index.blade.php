@@ -27,7 +27,8 @@
         <thead>
             <tr>
                 <th style="width: 10%" scope="col">Código</th>
-                <th style="width: 70%" scope="col">Nombre</th>
+                <th style="width: 40%" scope="col">Nombre</th>
+                <th style="width: 20%" scope="col">Fecha/Hora Creacion</th>
                 <th style="width: 20%" scope="col" colspan="1">Opciones</th>
             </tr>
         </thead>
@@ -36,6 +37,7 @@
             <tr>
                 <th scope="row">{{$carrera->codigo}}</th>
                 <td>{{$carrera->nombre}}</td>
+                <td>{{$carrera->created_at}}</td>
                 <td><a class="btn btn-info" href={{ route('carrera.edit', [$carrera]) }}>Editar</a></td>
             </tr>
             @endforeach
