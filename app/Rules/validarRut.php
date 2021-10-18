@@ -25,6 +25,14 @@ class validarRut implements Rule
      */
     public function passes($attribute, $value)
     {
+
+
+        if(is_numeric($value)==false){
+            return false;
+        }
+
+
+
         $value = preg_replace('/[^k0-9]/i', '', $value);
         $dv = substr($value, -1);
         $numero = substr($value,0,strlen($value)-1);
