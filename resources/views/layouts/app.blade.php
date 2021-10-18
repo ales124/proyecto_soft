@@ -26,6 +26,7 @@
             <div class="container">
                 <img class="img-fluid mr-5" src="http://www.ucn.cl/wp-content/uploads/2018/05/Escudo-UCN-Full-Color.png"
                     style="width: 5%;" alt ="">
+
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ _('Inicio') }}
                 </a>
@@ -45,7 +46,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
@@ -55,7 +56,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/perfilusuario">Cambiar contraseÃ±a</a>
+                                    <a class="dropdown-item" href="/perfilusuario">Cambiar contraseña</a>
                                     <a class="dropdown-item" href="{{ route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

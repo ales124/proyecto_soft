@@ -8,30 +8,40 @@
         <div class="col col-2">
             <form method="GET" action="{{ route('usuario.index') }}">
                 <div class="col-lg-12 py-3">
-                    <div class="col-lg-12 text-center">
+                    <div class="col col-2">
                         <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
                     </div>
                 </div>
-                <input type="text" name="search" id="search" placeholder="Buscar por Rut">
-                <button class="btn btn-success">buscar</button>
+
+                <div class="card">
+                    <div class="card-deck">
+                        <i class="fas fa-users fa-10x text-center"></i>
+                        <div class="card-body">
+                             <h5 class="card-title text-center">Deshabilitar Usuario</h5>
+                             <input  class="form-control mr-2"size="12" type="text" name="search" id="search" placeholder="Buscar por Rut">
+                             <button class="btn btn-success">Buscar</button>
+                        </div>
+                    </div>
+                 </div>
+
             </form>
         </div>
         <div class="col col-8">
-            <p class="text-center" style="font-size: x-large">Gestión de Usuarios</p>
+            <p class="text-center" style="font-size: x-large">Administración de Usuarios</p>
         </div>
         <div class="col col-2">
-            <a class="btn btn-success btn-block" href={{ route('usuario.create') }}> <i class="fas fa-plus"></i> Usuario</a>
+            <a class="btn btn-success btn-block" href={{ route('usuario.create') }}> <i class="fas fa-plus"></i>Agregar Usuario</a>
         </div>
     </div>
-    <table class="table table-dark">
+    <table class="table table-white">
         <thead>
             <tr>
                 <th style="width: 10%" scope="col">Rut</th>
                 <th style="width: 20%" scope="col">Fecha/Hora Creacion</th>
                 <th style="width: 25%" scope="col">Nombre</th>
-                <th style="width: 25%" scope="col">Email</th>
+                <th style="width: 25%" scope="col">Correo</th>
                 <th style="width: 20%" scope="col">Rol</th>
-                <th style="width: 20%" scope="col" colspan="3">Accion</th>
+                <th style="width: 20%" scope="col" colspan="3">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -44,12 +54,12 @@
                 <td>{{$usuario->rol}}</td>
 
                 @if ($usuario->status === 1)
-                    <td><a class="btn btn-warning" href={{ route('changeStatus', ['id' => $usuario]) }}>deshabilitar</a></td>
+                    <td><a class="btn btn-warning" href={{ route('changeStatus', ['id' => $usuario]) }}>Deshabilitar</a></td>
                 @else
-                    <td><a class="btn btn-info" href={{ route('changeStatus', ['id' => $usuario]) }}>habilitar</a></td>
+                    <td><a class="btn btn-info" href={{ route('changeStatus', ['id' => $usuario]) }}>Habilitar</a></td>
                 @endif
 
-                <td><a class="btn btn-danger" href={{ route('resetPassword', ['id' => $usuario]) }}>reiniciar clave</a></td>
+                <td><a class="btn btn-dark" href={{ route('resetPassword', ['id' => $usuario]) }}>Reiniciar clave</a></td>
 
 
         </tr>
