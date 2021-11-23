@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-lg">
             <div class="container">
                 <img class="img-fluid mr-5" src="http://www.ucn.cl/wp-content/uploads/2018/05/Escudo-UCN-Full-Color.png"
                     style="width: 5%;">
