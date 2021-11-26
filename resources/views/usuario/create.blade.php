@@ -56,7 +56,7 @@
                             <label for="form-control-label" style="color:black">Rol</label>
                             <select class="form-control" name="rol" id="rol">
                                 <option value="Jefe de Carrera">Jefe de carrera</option>
-                                <option value="Alumno">Alumno</option>
+                                <option value="Alumno">Estudiante</option>
                             </select>
                         </div>
 
@@ -89,22 +89,44 @@
     <script>
         const rolSelect = document.getElementById('rol');
         const carreraSelect = document.getElementById('carrera')
+
         //variable de carreras desde el controlador de carreras
         const listaCarreras = {!! json_encode($carreras) !!}
+        console.log(listaCarreras);
         if (listaCarreras.length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No puedes crear usuarios sin tener carreras en el sistema!',
-                footer: 'Para crear carreras has&nbsp;<a href="/carrera/create">click aca</a>'
+                text: 'No es posible agregar un usuario sin tener carreras registradas.',
+                footer: 'Si quieres crear una carrera haz&nbsp;<a href="/carrera/create">Click aquí</a>'
             }).then((result) => {
                 window.location.href = '/usuario'
             })
         }
         rolSelect.addEventListener('change', function(e){
-
-            carreraSelect.value=null;
-            carreraSelect.disabled = false;
+            if (rolSelect.value === 'Jefe de Carrera') {
+                listaCarreras.forEach(carrera => {
+                    carrera.users.forEach(usuario => {
+                        if (usuario.rol === "Jefe de Carrera") {
+                            for (let i = 0; i < optionSelect.length; i++) {
+                                if (carrera.id == optionSelect[i].value) {
+                                    optionSelect[i].style.display = "none"
+                                }
+                            }
+                        }
+                    });
+                });
+            }else {
+                listaCarreras.forEach(carrera => {
+                    carrera.users.forEach(usuario => {
+                        for (let i = 0; i < optionSelect.length; i++) {
+                            if (carrera.id == optionSelect[i].value) {
+                                optionSelect[i].style.display = "unset"
+                            }
+                        }
+                    });
+                });
+            }
         })
     </script>
 

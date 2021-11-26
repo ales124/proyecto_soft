@@ -20,6 +20,7 @@
                              <h5 class="card-title text-center">Deshabilitar Usuario</h5>
                              <input  class="form-control mr-2"size="12" type="text" name="search" id="search" placeholder="Buscar por Rut">
                              <button class="btn btn-success">Buscar</button>
+                             <button href="/usuario" class="btn btn-primary">Volver</button>
                         </div>
                     </div>
                  </div>
@@ -52,7 +53,7 @@
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
                 <td>{{$usuario->rol}}</td>
-
+                <td><a class="btn btn-secondary" href={{ route('usuario.edit', [$usuario]) }}>Editar</a></td>
                 @if ($usuario->status === 1)
                     <td><a class="btn btn-warning" href={{ route('changeStatus', ['id' => $usuario]) }}>Deshabilitar</a></td>
                 @else

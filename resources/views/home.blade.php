@@ -6,7 +6,7 @@
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
-            Contraseña actualizada con exito
+            Contraseña actualizada con éxito
     </div>
 </div>
     </div>
@@ -45,7 +45,7 @@
                     <small class="text-muted">Permite realizar una carga masiva de estudiantes al sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -55,7 +55,7 @@
                     <small class="text-muted">Permite buscar un estudiante mediante su RUT.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -65,7 +65,7 @@
                     <small class="text-muted">Permite visualizar todas las solicitudes de caracter "Pendiente".</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                     <small class="text-muted">Permite visualizar mediante gráficos las distintas solicitudes del sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     <small class="text-muted">Permite o crear/editar/anular solicitudes especiales.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="/solicitud" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>

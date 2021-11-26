@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\BuscarEstudianteController;
 use App\Http\Controllers\ChangePasswordController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\DeshabilitarUsuarioController;
 use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\SolicitudController;
+use App\Models\Solicitud;
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +34,25 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Auth::routes();
+Route::resource('carrera', CarreraController::class,['middleware'=>'auth']);
 Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);
 
+Route::middleware(['rutasAlumno'])->group(function () {
+    Route::resource('solicitud', SolicitudController::class);
+});
+
+Route::middleware(['rutasJefe'])->group(function () {
+Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
+Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');
+Route::get('alumno/{id}', [BuscarEstudianteController::class,'mostrarEstudiante'])->name('mostrarEstudiante');
+Route::get('alumno/{alumno_id}/solicitud/{id}', [BuscarEstudianteController::class, 'verDatosSolicitud'])->name('verSolicitudAlumno');
+
+});
+Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::post('/change-password',[ChangePasswordController::class, 'changePassword'])->name('changepassword');
-Route::resource('carrera', CarreraController::class,['middleware'=>'auth']);
+
 Route::get('/status-user-change', [DeshabilitarUsuarioController::class, 'deshabilitarUsuario'])->name('changeStatus');
 Route::get('/resetPassword', [resetPassword::class, 'resetearContraseña'])->name('resetPassword');

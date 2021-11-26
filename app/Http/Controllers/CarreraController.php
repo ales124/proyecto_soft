@@ -47,7 +47,7 @@ class CarreraController extends Controller
     {
 
         $request->validate([
-            'codigo' => 'regex:/[1-9]/|unique:carreras|min:4|max:4|regex:/^[1-9]/',
+            'codigo' => 'regex:/[1-9][0-9][0-9][0-9]/|unique:carreras|min:4|max:4|regex:/^[1-9]/',
             'nombre' => 'regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'
         ]);
 
@@ -56,7 +56,7 @@ class CarreraController extends Controller
             'nombre' => $request->nombre
         ]);
 
-        return redirect('/carrera')->with('success','Carrera creada con exito');
+        return redirect('/carrera')->with('success','Carrera creada con éxito');
 
     }
 

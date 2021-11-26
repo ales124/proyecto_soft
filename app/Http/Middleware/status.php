@@ -26,7 +26,7 @@ class status
 
             $request->session()->regenerateToken();
 
-            return redirect()->route('login')->with('error', 'Tu cuenta fue suspendida, por favor ponte en contacto con el administrador.');
+            return redirect()->route('login')->with('error', 'Usted no está autorizado para acceder al sistema. Contacte al administrador.');
 
 
 

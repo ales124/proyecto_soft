@@ -36,7 +36,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $carreras = Carrera::all();
+        $carreras = Carrera::with('users')->get();
         return view('usuario.create')->with('carreras', $carreras);
     }
 
@@ -48,8 +48,6 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255','unique:users'],
@@ -71,7 +69,7 @@ class UsuarioController extends Controller
 
 
         ]);
-        return redirect('/usuario');
+        return redirect('/usuario')->with('success','Usuario creado con éxito');
     }
 
     /**
