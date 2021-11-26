@@ -21,17 +21,17 @@
                             <label for="form-control-label" style="color: white">Tipo Solicitud</label>
                             <select class="form-control" name="tipo" id="tipo">
                                 <option value={{ null }}>Seleccione..</option>
-                                <option value="1">Solicitud de Sobrecupo</option>
-                                <option value="2">Solicitud Cambio de Paralelo</option>
-                                <option value="3">Solicitud Eliminación de Asignatura</option>
-                                <option value="4">Solicitud Inscripción de Asignatura</option>
-                                <option value="5">Solicitud Ayudantía</option>
-                                <option value="6">Solicitud Facilidades Académicas</option>
+                                <option value="1">Solicitud de sobrecupo</option>
+                                <option value="2">Solicitud de cambio de paralelo</option>
+                                <option value="3">Solicitud de eliminación de asignatura</option>
+                                <option value="4">Solicitud de inscripción de asignatura</option>
+                                <option value="5">Solicitud de ayudantía</option>
+                                <option value="6">Solicitud de facilidades académicas</option>
                             </select>
                         </div>
                         <br>
                         <div class="form-group" id="groupTelefono" hidden>
-                            <label class="form-control-label">TELEFONO CONTACTO</label>
+                            <label class="form-control-label">TELEFONO DE CONTACTO</label>
                             <input id="telefono" type="text"
                                 class="form-control @error('telefono') is-invalid @enderror" name="telefono"
                                 value="{{ old('telefono') }}" autocomplete="telefono" autofocus>
@@ -43,7 +43,7 @@
                             @enderror
                         </div>
                         <div class="form-group" id="groupNrc" hidden>
-                            <label class="form-control-label">NRC ASIGNATURA</label>
+                            <label class="form-control-label">NRC DE LA ASIGNATURA</label>
                             <input id="nrc" type="text" class="form-control @error('nrc') is-invalid @enderror"
                                 name="nrc" value="{{ old('nrc') }}" autocomplete="nrc" autofocus>
 
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group" id="groupNombre" hidden>
-                            <label class="form-control-label">NOMBRE ASIGNATURA</label>
+                            <label class="form-control-label">NOMBRE DE LA ASIGNATURA</label>
                             <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror"
                                 name="nombre" value="{{ old('nombre') }}" autocomplete="nombre" autofocus>
 
@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="form-group" id="groupTipoFacilidad" hidden>
-                            <label for="form-control-label" style="color: white">TIPO DE FACILIDAD</label>
+                            <label for="form-control-label" style="color: black">TIPO DE FACILIDAD</label>
                             <select class="form-control" name="facilidad" id="facilidad">
                                 <option value={{ null }}>Seleccione..</option>
                                 <option value="Licencia">Licencia Médica o Certificado Médico</option>
@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="form-group" id="groupProfesor" hidden>
-                            <label class="form-control-label">NOMBRE PROFESOR</label>
+                            <label class="form-control-label">NOMBRE DEL PROFESOR</label>
                             <input id="profesor" type="text"
                                 class="form-control @error('profesor') is-invalid @enderror" name="profesor"
                                 value="{{ old('profesor') }}" autocomplete="profesor" autofocus>
@@ -151,6 +151,10 @@
                                 <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
                                     }}</button>
                             </div>
+                        </div>
+                        <div class="col-lg-12 py-3">
+                            <div class="col-lg-12 text-center">
+                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
                         </div>
                     </form>
                 </div>

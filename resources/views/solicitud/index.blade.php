@@ -7,30 +7,25 @@
         {{ session('success') }}
     </div>
 @endif
+
 <div class="container">
     <div class="row mb-4">
         <div class="col col-3">
-            <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('carrera.index') }}">
-                <input class="form-control mr-sm-2" name="search" id="search" type="search"
-                    placeholder="Buscar por código" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                        class="fas fa-search"></i></button>
-            </form>
+            <a href="http://127.0.0.1:8000/carrera" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
         </div>
         <div class="col col-7">
-            <p class="text-center" style="font-size: x-large">Mis Solicitudes</p>
+            <p class="text-center" style="font-size: x-large">Mis solicitudes</p>
         </div>
         <div class="col col-2">
-            <a class="btn btn-success btn-block" href="solicitud/create"> <i class="fas fa-plus"></i> Nueva
-                Solicitud</a>
+            <a class="btn btn-success btn-block" href="solicitud/create"> <i class="fas fa-plus"></i> + Nueva solicitud</a>
         </div>
     </div>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th style="width: 15%" scope="col">Fecha Solicitud</th>
-                <th style="width: 20%" scope="col">Numero Solicitud</th>
-                <th style="width: 30%" scope="col">Tipo Solicitud</th>
+                <th style="width: 15%" scope="col">Fecha de la solicitud</th>
+                <th style="width: 20%" scope="col">Número de la solicitud</th>
+                <th style="width: 30%" scope="col">Tipo de la solicitud</th>
                 <th style="width: 20%" scope="col">Estado</th>
                 <th style="width: 10%" scope="col">Editar</th>
             </tr>

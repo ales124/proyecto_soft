@@ -59,7 +59,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
                 //-------------------------------------
@@ -81,7 +81,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
                 //-------------------------------------
             case '3':
@@ -101,7 +101,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
                 //-------------------------------------
 
@@ -122,7 +122,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
                 //-------------------------------------
@@ -145,7 +145,7 @@ class SolicitudController extends Controller
                     'detalles' => $request->detalle,
                     'cant_ayudantias' => $request->cantidad
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
                 //-------------------------------------
@@ -179,9 +179,8 @@ class SolicitudController extends Controller
                     'nombre_profesor' => $request->profesor,
                     'archivos' => json_encode($datos),
                 ]);
-                return redirect('/solicitud');
+                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
-
             default:
                 # code...
                 break;
