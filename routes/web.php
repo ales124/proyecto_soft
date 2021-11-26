@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cargaMasiva;
 use App\Http\Controllers\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,12 @@ Route::middleware(['auth'])->group(function () {
         return view('perfilusuario')->with('user',$usuarioLogeado);
     });
 });
+
+
+//rutas para el jefe de carrera
+
+Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
+Route::post('cargaMasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
 
 Auth::routes();
 Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);

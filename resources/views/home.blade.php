@@ -18,6 +18,16 @@
             <div class="card">
                 <i class="fas fa-users fa-10x text-center"></i>
                 <div class="card-body">
+                    <h5 class="card-title text-center">Carga masiva de estudiantes</h5>
+                    <small class="text-muted">Permite realizar una carga masiva de estudiantes al sistema.</small>
+                </div>
+                <div class="card-footer">
+                    <a href="{{route('CargaMasiva')}}" class="btn btn-info btn-block">INGRESAR</a>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-users fa-10x text-center"></i>
+                <div class="card-body">
                     <h5 class="card-title text-center">Administrar usuarios</h5>
                     <small class="text-muted">Permite crear, editar y deshabilitar usuarios del sistema UCN.</small>
                 </div>
@@ -38,16 +48,7 @@
         </div>
         @elseif (Auth::user()->rol == "Jefe de Carrera")
         <div class="card-deck">
-            <div class="card">
-                <i class="fas fa-users fa-10x text-center"></i>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Carga masiva de estudiantes</h5>
-                    <small class="text-muted">Permite realizar una carga masiva de estudiantes al sistema.</small>
-                </div>
-                <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
-                </div>
-            </div>
+
             <div class="card">
                 <i class="fas fa-search fa-10x text-center"></i>
                 <div class="card-body">
@@ -55,7 +56,7 @@
                     <small class="text-muted">Permite buscar un estudiante mediante su RUT.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">INGRESAR</a>
                 </div>
             </div>
             <div class="card">
@@ -65,7 +66,7 @@
                     <small class="text-muted">Permite visualizar todas las solicitudes de caracter "Pendiente".</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">IR</a>
+                    <a href="" class="btn btn-info btn-block">INGRESAR</a>
                 </div>
             </div>
 
