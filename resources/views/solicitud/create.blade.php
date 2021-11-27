@@ -136,7 +136,7 @@
                         <div class="form-group" id="groupAdjunto" hidden>
                             <label class="form-control-label">ADJUNTAR ARCHIVO</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror"
-                                name="adjunto[]" multiple>
+                                name="adjunto[]" max:"3" multiple>
 
                             @error('adjunto')
                             <span class="invalid-feedback" role="alert">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
+                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="botton" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
