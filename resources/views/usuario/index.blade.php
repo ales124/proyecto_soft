@@ -7,11 +7,10 @@
     <div class="row mb-3">
         <div class="col col-2">
             <form method="GET" action="{{ route('usuario.index') }}">
-                <div class="col-lg-12 py-3">
+                
                     <div class="col col-2">
                         <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
                     </div>
-                </div>
 
                 <div class="card">
                     <div class="card-deck">
@@ -55,12 +54,12 @@
                 <td>{{$usuario->rol}}</td>
                 <td><a class="btn btn-secondary" href={{ route('usuario.edit', [$usuario]) }}>Editar</a></td>
                 @if ($usuario->status === 1)
-                    <td><a class="btn btn-warning" href={{ route('changeStatus', ['id' => $usuario]) }}>Deshabilitar</a></td>
+                    <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 3cm" class="btn btn-warning"href={{ route('changeStatus', ['id' => $usuario]) }}>Deshabilitar</a></td>
                 @else
-                    <td><a class="btn btn-info" href={{ route('changeStatus', ['id' => $usuario]) }}>Habilitar</a></td>
+                    <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 3cm" class="btn btn-info" href={{ route('changeStatus', ['id' => $usuario]) }}>Habilitar</a></td>
                 @endif
 
-                <td><a class="btn btn-dark" href={{ route('resetPassword', ['id' => $usuario]) }}>Reiniciar clave</a></td>
+                <td><a style="background-color: #00B5E2; border-color:#00B5E2; color:black; width: 3.5cm"  class="btn btn-dark" href={{ route('resetPassword', ['id' => $usuario]) }}>Reiniciar clave</a></td>
 
 
         </tr>

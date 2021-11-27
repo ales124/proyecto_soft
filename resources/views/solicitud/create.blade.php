@@ -136,7 +136,7 @@
                         <div class="form-group" id="groupAdjunto" hidden>
                             <label class="form-control-label">ADJUNTAR ARCHIVO</label>
                             <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror"
-                                name="adjunto[]" multiple>
+                                name="adjunto[]" max:"3" multiple>
 
                             @error('adjunto')
                             <span class="invalid-feedback" role="alert">

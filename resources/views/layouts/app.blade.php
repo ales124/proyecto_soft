@@ -19,10 +19,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        nav.navbar {
+    background-color: #003057;
+}
+    </style>
 </head>
-<body>
+<body >
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-lg">
+        <nav class="navbar navbar-expand-md navbar-dark  shadow-lg " >
+            
             <div class="container">
                 <img class="img-fluid mr-5" src="http://www.ucn.cl/wp-content/uploads/2018/05/Escudo-UCN-Full-Color.png"
                     style="width: 5%;">
@@ -46,7 +52,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
