@@ -172,7 +172,7 @@ class SolicitudController extends Controller
                 }
 
                 $findUser->solicitudes()->attach($request->tipo, [
-                    'telefono' => $request->telefono,
+                    'telefono0' => $request->telefono,
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle,
                     'tipo_facilidad' => $request->facilidad,
