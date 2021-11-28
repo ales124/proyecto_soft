@@ -88,6 +88,7 @@ class cargaMasiva extends Controller
 
 
 
+                //validacion de los usuarios en el controlador
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exist:carrera,codigo",
                     "rut"=>'unique:users,rut',
@@ -98,6 +99,7 @@ class cargaMasiva extends Controller
 
 
 
+                //metodo first que obtiene el primer dato
                     $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
 
                    dd( $carrera->id);
