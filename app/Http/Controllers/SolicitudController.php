@@ -45,9 +45,9 @@ class SolicitudController extends Controller
         switch ($request->tipo) {
             case '1':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nrc' => ['required','max:5'],
-                    'nombre' => ['required','string','max:255'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nrc' => ['numeric','required'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255']
                 ]);
 
@@ -66,9 +66,9 @@ class SolicitudController extends Controller
 
             case '2':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nrc' => ['required','max:5'],
-                    'nombre' => ['required','string','max:255'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nrc' => ['numeric','required'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255']
 
                 ]);
@@ -86,9 +86,9 @@ class SolicitudController extends Controller
                 //-------------------------------------
             case '3':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nrc' => ['required','max:5'],
-                    'nombre' => ['required','string','max:255'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nrc' => ['numeric','required'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255']
 
                 ]);
@@ -107,9 +107,9 @@ class SolicitudController extends Controller
 
             case '4':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nrc' => ['required','max:5'],
-                    'nombre' => ['required','string','max:255'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nrc' => ['numeric','required'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255']
 
                 ]);
@@ -129,11 +129,11 @@ class SolicitudController extends Controller
 
             case '5':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nombre' => ['required','string','max:255'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255'],
-                    'calificacion' => ['regex:[0-9]','required','max:3'],
-                    'cant_ayudantias' => ['regex:[0-9]','required']
+                    'calificacion' => ['required'],
+                    'cantidad' => ['numeric','required']
                 ]);
 
                 $findUser = User::find($request->user);
@@ -151,11 +151,11 @@ class SolicitudController extends Controller
                 //-------------------------------------
             case '6':
                 $request->validate([
-                    'telefono' => ['regex:/[0-9]*/','required','max:8'],
-                    'nombre' => ['required','string','max:255'],
-                    'detalle' => ['required','string'],
+                    'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
+                    'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
+                    'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
-                    'profesor' => ['required','string'],
+                    'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx'],
                 ]);
 
@@ -185,6 +185,8 @@ class SolicitudController extends Controller
                 # code...
                 break;
         }
+
+        
     }
 
     /**

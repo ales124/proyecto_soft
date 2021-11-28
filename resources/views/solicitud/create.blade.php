@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="botton" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
+                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="button" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
@@ -164,6 +164,8 @@
     </div>
 </div>
 <script type="text/javascript">
+    
+    const form = document.getElementById('formulario');
     const selectSolicitud = document.getElementById('tipo');
     const inputTelefono = document.getElementById('groupTelefono');
     const inputNrc = document.getElementById('groupNrc');
@@ -175,6 +177,7 @@
     const inputProfesor = document.getElementById('groupProfesor');
     const inputAdjunto = document.getElementById('groupAdjunto');
     const button = document.getElementById('groupButton');
+    const button2 = document.getElementById('boton');
     selectSolicitud.addEventListener('change', () => {
         switch (selectSolicitud.value) {
             case "1":
@@ -264,6 +267,24 @@
         }
     })
 
+    
+    button.addEventListener('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: 'Una vez creada la solicitud, esta no se podrá eliminar. ¿Quieres continuar?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: `Cancelar`,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                form.submit();
+            } else if (result.isDenied) {
+                Swal.fire('No guardado', '', 'info')
+            }
+        })
+    })
 </script>
 
 @endsection
