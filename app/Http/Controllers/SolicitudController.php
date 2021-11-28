@@ -132,7 +132,7 @@ class SolicitudController extends Controller
                     'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
                     'nombre' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
                     'detalle' => ['string','required','max:255'],
-                    'calificacion' => ['required'],
+                    'calificacion' => ['regex:/^[\d]{1}(\.[\d]{1,2})?$/','required','numeric','regex:/^[1-7]/'],
                     'cantidad' => ['numeric','required']
                 ]);
 
