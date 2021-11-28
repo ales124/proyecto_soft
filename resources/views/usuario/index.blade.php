@@ -7,9 +7,12 @@
     <div class="row mb-3">
         <div class="col col-2">
             <form method="GET" action="{{ route('usuario.index') }}">
-                
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    {{ _('Inicio') }}
+                </a>
+
                     <div class="col col-2">
-                        <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                        <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
                     </div>
 
                 <div class="card">
@@ -19,7 +22,7 @@
                              <h5 class="card-title text-center">Deshabilitar Usuario</h5>
                              <input  class="form-control mr-2"size="12" type="text" name="search" id="search" placeholder="Buscar por Rut">
                              <button class="btn btn-success">Buscar</button>
-                             <button href="/usuario" class="btn btn-primary">Volver</button>
+                             <button href="/usuario" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-primary">Volver</button>
                         </div>
                     </div>
                  </div>

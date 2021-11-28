@@ -22,7 +22,7 @@
                     <small class="text-muted">Permite crear, editar y deshabilitar usuarios del sistema UCN.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="/usuario" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="/usuario" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -32,7 +32,7 @@
                     <small class="text-muted">Permite crear y/o editar carreras del sistema UCN.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="/carrera" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     <small class="text-muted">Permite realizar una carga masiva de estudiantes al sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -55,7 +55,7 @@
                     <small class="text-muted">Permite buscar un estudiante mediante su RUT.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -65,7 +65,7 @@
                     <small class="text-muted">Permite visualizar todas las solicitudes de caracter "Pendiente".</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                     <small class="text-muted">Permite visualizar mediante gráficos las distintas solicitudes del sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     <small class="text-muted">Permite o crear/editar/anular solicitudes especiales.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="/solicitud" class="btn btn-info btn-block">Ingresar</a>
+                    <a style="background-color: #003057; border-color:#003057; color:white"  href="/solicitud" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ $jefe = false;
             <a class="btn btn-success btn-block" href="carrera/create"> <i class="fas fa-plus"></i>Agregar Carrera</a>
         </div>
         <div class="col col-2">
-            <a href="http://127.0.0.1:8000/home" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+            <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
         </div>
     </div>
     <table class="table table-white">
@@ -38,7 +38,7 @@ $jefe = false;
                 <th scope="row">{{$carrera->codigo}}</th>
                 <td>{{$carrera->nombre}}</td>
                 <td>{{$carrera->created_at}}</td>
-                <td><a class="btn btn-info" href={{ route('carrera.edit', [$carrera]) }}>Editar</a></td>
+                <td><a class="btn btn-secondary" href={{ route('carrera.edit', [$carrera]) }}>Editar</a></td>
             </tr>
             @endforeach
         </tbody>

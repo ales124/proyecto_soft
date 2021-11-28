@@ -148,13 +148,13 @@
 
                         <div hidden id="groupButton" class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
+                                <button  type="submit" style="background-color: #003057;border-color:#003057; color:white" id="boton" class="btn btn-outline-primary">{{ __('Agregar')
                                     }}</button>
                             </div>
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" type="button" id="button" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
+                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
@@ -164,7 +164,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    
+
     const form = document.getElementById('formulario');
     const selectSolicitud = document.getElementById('tipo');
     const inputTelefono = document.getElementById('groupTelefono');
@@ -267,7 +267,7 @@
         }
     })
 
-    
+
     button.addEventListener('click', function(e){
         e.preventDefault();
         Swal.fire({
