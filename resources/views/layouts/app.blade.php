@@ -52,9 +52,7 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                                </li>
+
                             @endif
                         @else
                             <li class="nav-item dropdown">
