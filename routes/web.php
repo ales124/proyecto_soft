@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
 Route::post('cargaMasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
 
+
 Auth::routes();
 Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);
 
