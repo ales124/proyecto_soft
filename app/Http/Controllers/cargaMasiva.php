@@ -22,8 +22,7 @@ class cargaMasiva extends Controller
     public function index(){
 
         $auxAdd=[];
-        $auxErrores=[];
-        return view('auth.CargaMasiva.index')->with('nuevos',$auxAdd)->with('erorres',$auxErrores);
+        return view('auth.CargaMasiva.index')->with('nuevos',$auxAdd);
 
     }
 
@@ -93,8 +92,7 @@ class cargaMasiva extends Controller
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exist:carrera,codigo",
                     "rut"=>'unique:users,rut',
-                    'email'=>'unique:users,email',
-
+                    'email'=>'unique:users,email'
                 ]);
 
 
@@ -102,25 +100,13 @@ class cargaMasiva extends Controller
 
 
 
-
-
-
-                dd($validator);
-
-                if (!$validator->fails()) {
-
-                    dd($auxDatos);
-
-
-
-
-                    $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+                   $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
 
 
 
 
 
-                    $nuevaContraseña = substr($auxDatos->request->all()["rut"], 0, 6);
+                    $nuevaContraseña = substr($auxDatos->request->all()["rut"],0,6);
                     $newUser=User::create([
                         'name'=> $auxDatos->request->all()["nombre"],
                         'email'=> $auxDatos->request->all()["email"],
@@ -134,8 +120,6 @@ class cargaMasiva extends Controller
 
                     ]);
                     $auxAdd["fila" . $fila->getRowIndex()]= $newUser;
-
-                }
 
 
             }
@@ -178,8 +162,6 @@ class cargaMasiva extends Controller
                     'email'=>'unique:users,email'
                 ]);
 
-
-
                 $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
                 if(!$validator->fails()){
                     $carrera=Carrera::where('codigo',$auxDatos->request->all()["carrera"])->first();
@@ -213,8 +195,7 @@ class cargaMasiva extends Controller
 
 
        // return view('auth.CargaMasiva.index',compact('auxAdd'));
-        return view('auth.CargaMasiva.index')->with('nuevos',$auxAdd)->with('errores', $auxErrores);
-
+        return view('auth.CargaMasiva.index')->with('nuevos',$auxAdd);
     }
 
 

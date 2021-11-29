@@ -23,7 +23,7 @@
         <thead>
             <tr>
 
-                <th scope="col">Fila</th>
+                <th scope="col"> Fila </th>
                 <th scope="col">Nombre Alumno</th>
 
             </tr>
@@ -43,34 +43,7 @@
     </table>
     @endif
    </div>
-</div>
 
- @if($erorres)
-    <h1 class="table-white">Alumnos no agregados</h1>
-    <table class="table table-red">
-        <thead>
-            <tr>
-
-                <th scope="col">Fila</th>
-                <th scope="col">Nombre Alumno</th>
-
-            </tr>
-
-
-        </thead>
-        <tbody>
-            @foreach ($errores as $key=>$value )
-            <tr>
-
-                <td class= "table-succes text-black">{{$key}}</td>
-                <td class= "table-succes text-black">{{$value->name}}</td>
-
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @endif
-   </div>
 
 
 

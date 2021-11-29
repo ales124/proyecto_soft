@@ -27,8 +27,44 @@ class validarRut implements Rule
     {
 
 
+
+        $nuevaContraseña = substr($value,8,9);
+
+
         if(is_numeric($value)==false){
-            return false;
+
+
+            if($nuevaContraseña=="K" ||$nuevaContraseña=="k"){
+                $value = preg_replace('/[^k0-9]/i', '', $value);
+                $dv = substr($value, -1);
+                $numero = substr($value,0,strlen($value)-1);
+                $i = 2;
+                $suma = 0;
+                foreach(array_reverse(str_split($numero))as $v){
+
+                    if($i == 8)
+                    $i = 2;
+
+                    $suma += $v * $i;
+                    ++$i;
+                }
+                    $dvr = 11 - ($suma % 11);
+                    if($dvr == 11)
+                        $dvr = 0;
+                    if($dvr == 10)
+                        $dvr = 'K';
+                    if($dvr == strtoupper($dv))
+                        return true;
+                    else
+                        return false;
+
+            }else{
+                return false;
+            }
+
+
+
+
         }
 
 

@@ -62,6 +62,7 @@ class RegisterController extends Controller
 
 
 
+
         ]);
     }
 
@@ -84,7 +85,8 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
                 'rut'=>$data['rut'],
                 'rol'=>$data['rol'],
-                'status'=>1
+                'status'=>1,
+
 
             ]);
         }
@@ -98,7 +100,8 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
                 'rut'=>$data['rut'],
                 'rol'=>$data['rol'],
-                'status'=>0
+                'status'=>0,
+
 
             ]);
 
