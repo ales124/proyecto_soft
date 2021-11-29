@@ -4,9 +4,12 @@
 
 <div class="container">
     <div class="row">
+            </div>
+        </div>
+    </div>
         <div class="col-lg-3 col-md-2"></div>
         <div class="col-lg-6 col-md-6 login-box">
-            <div class="login-title">Solicitud Nº {{$solicitud->getOriginal()['pivot_id']}}</div>
+            <div class="login-title" style="margin-left: 53%">Solicitud Nº {{$solicitud->getOriginal()['pivot_id']}}</div>
             <div class="row">
                 <div class="col-6">
                     <div class="row-12">

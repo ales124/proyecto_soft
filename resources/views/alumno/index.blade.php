@@ -4,12 +4,16 @@
 
 <div class="container">
     <div class="row">
+                 </div>
+              </div>
+            </div>
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
                 <div class="col-lg-12 login-key">
                     <i class="fas fa-users"></i>
                 </div>
-            <div class="login-title">Registro del Alumno</div>
+
+            <div class="col-lg-6 login-title" style="margin-left: 50%">Registro del Alumno</div>
             <div class="row">
                 <div class="col-6">
                     <div class="row-12">
@@ -19,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-6" >
-                    <table class="table table-striped table-dark table-hover table-sm">
+                    <table class="table table-striped table-dark table-hover table-sm center">
                         <tbody>
                             <tr>
                                 <td>Nombre:</td>
