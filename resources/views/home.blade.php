@@ -55,7 +55,7 @@
                     <small class="text-muted">Permite buscar un estudiante mediante su RUT.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="/buscar-estudiante" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">

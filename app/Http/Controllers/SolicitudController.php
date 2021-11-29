@@ -180,6 +180,7 @@ class SolicitudController extends Controller
                     'archivos' => json_encode($datos),
                 ]);
                 return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+
                 break;
             default:
                 # code...
@@ -208,7 +209,7 @@ class SolicitudController extends Controller
      */
     public function edit(Solicitud $solicitud)
     {
-        //
+        return view('solicitud.edit')->with('solicitud',$solicitud);
     }
 
     /**

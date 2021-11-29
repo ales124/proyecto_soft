@@ -71,6 +71,7 @@ class CarreraController extends Controller
 
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,9 +80,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-
         return view('carrera.edit')->with('carrera',$carrera);
-
     }
 
     /**

@@ -7,9 +7,6 @@
     <div class="row mb-3">
         <div class="col col-2">
             <form method="GET" action="{{ route('usuario.index') }}">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ _('Inicio') }}
-                </a>
 
                     <div class="col col-2">
                         <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>

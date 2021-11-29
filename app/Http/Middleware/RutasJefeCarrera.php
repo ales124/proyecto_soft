@@ -16,11 +16,10 @@ class RutasJefeCarrera
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->rol == 'Jefe de Carrera') {
+        if (auth()->check() && auth()->user()->rol == 'Jefe Carrera') {
             return $next($request);
         }else {
             return redirect('home');
         }
-
     }
 }
