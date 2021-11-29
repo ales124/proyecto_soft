@@ -22,6 +22,8 @@ class SolicitudController extends Controller
     {
         $solicitudesAlumno = Auth::user()->solicitudes;
         return view('solicitud.index')->with('solicitudes', $solicitudesAlumno);
+
+        
     }
 
     /**

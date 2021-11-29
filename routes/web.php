@@ -11,6 +11,7 @@ use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\cargaMasiva;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::middleware(['rutasAlumno'])->group(function () {
     Route::resource('solicitud', SolicitudController::class);
 });
 
+Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
+Route::post('cargaMasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
 Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');

@@ -17,8 +17,8 @@
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
                     <form method="POST" action={{ route('usuario.update', [$usuario]) }}>
-                        @method('PUT')
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label class="form-control-label">NOMBRE</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label class="form-control-label">RUT</label>
                             <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror"
-                                name="rut" value="{{ $usuario->rut }}" required>
+                                name="rut" value="{{ $usuario->rut }}" required  >
 
                             @error('rut')
                             <span class="invalid-feedback" role="alert">

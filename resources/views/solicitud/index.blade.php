@@ -4,7 +4,7 @@
 
 @if (session('success'))
     <div class="alert alert-success">
-        {{ session('success') }}
+        
     </div>
 @endif
 
@@ -84,5 +84,21 @@
     </table>
 
 </div>
+
+<script>
+    const solicitudSelect = document.getElementById('solicitud');
+    const listaSolicitudes = {!! json_encode($solicitudes) !!}
+                console.log(listaSolicitudes);
+                if (listaSolicitudes.length === 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No hay solicitudes ingresadas',
+                        footer: 'Para crear una solicitud has&nbsp;<a href="/solicitud/create">click aca</a>'
+                    }).then((result) => {
+                        window.location.href = '/home'
+                    })
+                }
+</script>
 
 @endsection
