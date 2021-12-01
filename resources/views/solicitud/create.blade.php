@@ -18,7 +18,7 @@
                         @csrf
                         <input type="text" name="user" id="user" value={{Auth::user()->id}} hidden>
                         <div class="form-group">
-                            <label for="form-control-label" style="color: white">Tipo Solicitud</label>
+                            <label for="form-control-label" >Tipo Solicitud</label>
                             <select class="form-control" name="tipo" id="tipo">
                                 <option value={{ null }}>Seleccione..</option>
                                 <option value="1">Solicitud de sobrecupo</option>
@@ -154,8 +154,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atras') }}</a>                           
-                            </div>
+                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atras') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
@@ -289,8 +288,6 @@
 
 
 
-
-    
 </script>
 
 @endsection

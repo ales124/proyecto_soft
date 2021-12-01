@@ -14,8 +14,8 @@
 <div class="container">
     <div class="row justify-content-center">
         @if (Auth::user()->rol == "Administrador")
-        
-        
+
+
         <div class="card-deck">
             <div class="card">
                 <i class="fas fa-users fa-10x text-center"></i>
@@ -24,7 +24,7 @@
                     <small class="text-muted">Permite realizar una carga masiva de estudiantes al sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="{{route('CargaMasiva')}}" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">INGRESAR</a>
+                    <a href="{{route('CargaMasiva')}}" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
             <div class="card">
@@ -49,7 +49,7 @@
             </div>
         </div>
         @elseif (Auth::user()->rol == "Jefe de Carrera")
-        <div class="card-deck"> 
+        <div class="card-deck">
             <div class="card">
                 <i class="fas fa-search fa-10x text-center"></i>
                 <div class="card-body">

@@ -10,17 +10,19 @@ $jefe = false;
    <div class="alert alert-success">
         {{ session('success') }}
    </div>
+
 @endif
+
 <div class="container">
     <div class="row mb-3">
+        <div class="col col-2" style="text-align: left;">
+            <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+        </div>
         <div class="col col-8">
             <p class="text-center" style="font-size: x-large">Administrar Carreras</p>
         </div>
         <div class="col col-2">
             <a class="btn btn-success btn-block" href="carrera/create"> <i class="fas fa-plus"></i>Agregar Carrera</a>
-        </div>
-        <div class="col col-2">
-            <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
         </div>
     </div>
     <table class="table table-white">
