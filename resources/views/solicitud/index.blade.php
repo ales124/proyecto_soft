@@ -4,7 +4,7 @@
 
 @if (session('success'))
     <div class="alert alert-success">
-        
+
     </div>
 @endif
 
@@ -27,7 +27,7 @@
                 <th style="width: 20%" scope="col">Número de la solicitud</th>
                 <th style="width: 30%" scope="col">Tipo de la solicitud</th>
                 <th style="width: 20%" scope="col">Estado</th>
-                <th style="width: 10%" scope="col">Editar</th>
+                <th style="width: 10%" scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -71,6 +71,7 @@
                 @endswitch
 
                 <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [$solicitud]) }}>Editar</a></td>
+                <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [$solicitud]) }}>Anular</a></td>
 
             </tr>
             @empty
@@ -94,7 +95,7 @@
                         icon: 'error',
                         title: 'Oops...',
                         text: 'No hay solicitudes ingresadas',
-                        footer: 'Para crear una solicitud has&nbsp;<a href="/solicitud/create">click aca</a>'
+                        footer: 'Para crear una solicitud has&nbsp;<a href="/solicitud/create">click aquí</a>'
                     }).then((result) => {
                         window.location.href = '/home'
                     })

@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
             'tipo' => 'Cambio de paralelo'
         ]);
        \App\Models\Solicitud::create([
-           'tipo' => 'Eliminacion Asignatura'
+           'tipo' => 'Eliminación asignatura'
        ]);
        \App\Models\Solicitud::create([
-           'tipo' => 'Inscripcion Asignatura'
+           'tipo' => 'Inscripción asignatura'
        ]);
        \App\Models\Solicitud::create([
-        'tipo' => 'Ayudantia'
+        'tipo' => 'Ayudantía'
        ]);
        \App\Models\Solicitud::create([
         'tipo' => 'Facilidades'
