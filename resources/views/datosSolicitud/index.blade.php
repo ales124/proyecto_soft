@@ -4,9 +4,11 @@
 
 <div class="container">
     <div class="row">
+    </div>
+</div>
         <div class="col-lg-3 col-md-2"></div>
         <div class="col-lg-6 col-md-6 login-box">
-            <div class="login-title">Solicitud Nº {{$solicitud->getOriginal()['pivot_id']}}</div>
+            <div class="login-title" style="margin-left: 53%">Solicitud Nº {{$solicitud->getOriginal()['pivot_id']}}</div>
             <div class="row">
                 <div class="col-6">
                     <div class="row-12">
@@ -15,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row-12">
-                        <div class="col-lg-12 mt-4 text-light login-title" style="font-size: 15px">
+                        <div class="col-lg-12 mt-4 text-light login-title" style="margin-right: 50%">
                             Tipo:
                             {{ $solicitud->getOriginal()['tipo'] }}
                         </div>
