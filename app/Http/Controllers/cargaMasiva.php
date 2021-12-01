@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 use App\Imports\EstudianteImport;
 use App\Models\Carrera;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Http\Response;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+
+
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -98,16 +102,17 @@ class cargaMasiva extends Controller
 
 
 
+                dd($validator->getMessageBag());
+
+                $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
+                if (!$validator->fails()) {
+
+                    $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
 
 
-                   $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
-
-
-
-
-
-                    $nuevaContraseña = substr($auxDatos->request->all()["rut"],0,6);
+                    $nuevaContraseña = substr($auxDatos->request->all()["rut"], 0, 6);
                     $newUser=User::create([
+
                         'name'=> $auxDatos->request->all()["nombre"],
                         'email'=> $auxDatos->request->all()["email"],
                         'password'=>Hash::make($nuevaContraseña),
@@ -119,10 +124,12 @@ class cargaMasiva extends Controller
 
 
                     ]);
+
                     $auxAdd["fila" . $fila->getRowIndex()]= $newUser;
 
-
+                }
             }
+
         }else{
 
             foreach($hoja1->getRowIterator(2,null) as $key =>$fila){
@@ -156,13 +163,17 @@ class cargaMasiva extends Controller
 
 
                 }
+
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exist:carrera,codigo",
                     "rut"=>'unique:users,rut',
                     'email'=>'unique:users,email'
                 ]);
 
+
+
                 $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
+
                 if(!$validator->fails()){
                     $carrera=Carrera::where('codigo',$auxDatos->request->all()["carrera"])->first();
 
