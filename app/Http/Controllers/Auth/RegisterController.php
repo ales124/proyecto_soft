@@ -58,6 +58,7 @@ class RegisterController extends Controller
             'rut'=>['required','string','unique:users', new validarRut()],
             'rol'=>['string','required','in:Administrador,Jefe de Carrera,Alumno'],
             'status'=>['required'],
+            'carrera'=>['required'],
 
 
 
