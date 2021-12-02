@@ -120,7 +120,7 @@
 
 
 
-                        @elseif ($solicitud->tipo == 'Eliminacion Asignatura')
+                        @elseif ($solicitud->tipo == 'Eliminación asignatura')
 
                         <div class="form-group">
                                 <label class="form-control-label">TELEFONO DE CONTACTO</label>
@@ -172,7 +172,7 @@
 
 
 
-                        @elseif ($solicitud->tipo == 'Inscripcion Asignatura')
+                        @elseif ($solicitud->tipo == 'Inscripción asignatura')
                         <div class="form-group">
                                 <label class="form-control-label">TELEFONO DE CONTACTO</label>
                                 <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror"
@@ -224,7 +224,7 @@
 
 
 
-                        @elseif ($solicitud->tipo == 'Ayudantia')
+                        @elseif ($solicitud->tipo == 'Ayudantía')
 
                         <div class="form-group">
                                 <label class="form-control-label">TELEFONO DE CONTACTO</label>
