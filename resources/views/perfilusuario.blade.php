@@ -37,7 +37,7 @@
 
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" class="btn btn-outline-primary">Cambiar</button>
+                                <button style="background-color: #003057;border-color:#003057; color:white" type="submit" class="btn btn-outline-primary">Cambiar</button>
                             </div>
                         </div>
                     </form>

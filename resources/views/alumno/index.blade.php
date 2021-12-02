@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-6" >
-                    <table class="table table-striped table-blue table-hover table-sm"style="margin-left: 35%">
+                    <table class="table table-striped table-blue table-hover table-sm table-success" style="margin-left: 35%">
                         <tbody>
                             <tr>
                                 <td>Nombre:</td>
@@ -49,12 +49,12 @@
         <div class="col-lg-6 col-md-6 mt-3 login-box">
             <div class="col-12">
                 <div class="login-title">Solicitudes</div>
-                <table class="table table-striped table-blue table-hover table-sm">
+                <table class="table table-striped table-blue table-hover table-sm table-success">
                     <thead>
                         <th scope="col">N°</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Tipo</th>
-                        <th scope="col">Ver</th>
+
                     </thead>
                     <tbody>
                         @forelse ($user->solicitudes as $solicitud)

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
     </div>
 </div>
         <div class="col-lg-3 col-md-2"></div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <table class="table table-striped table-blue table-hover table-sm">
+                    <table class="table table-striped table-blue table-hover table-sm table-success">
 
                         <tbody>
                             <tr>

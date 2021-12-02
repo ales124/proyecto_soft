@@ -21,7 +21,7 @@
 
    @if($nuevos)
     <h1 class="table-white">Alumnos agregados</h1>
-    <table class="table table-dark">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Fila</th>
