@@ -21,8 +21,9 @@ class cargaMasiva extends Controller
 
     public function index(){
 
+        $auxErrores=[];
         $auxAdd=[];
-        return view('CargaMasiva.index')->with('nuevos',$auxAdd);
+        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores);
 
     }
 
@@ -194,7 +195,7 @@ class cargaMasiva extends Controller
 
 
        // return view('auth.CargaMasiva.index',compact('auxAdd'));
-        return view('CargaMasiva.index')->with('nuevos',$auxAdd);
+        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores);
     }
 
 

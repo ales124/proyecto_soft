@@ -42,6 +42,33 @@
         </tbody>
     </table>
     @endif
+
+    @if ($eliminados)
+    <h1 claas="text-white">Estudiantes no agregados</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Fila</th>
+                <th scope="col">Nombre estudiante</th>
+                <th scope="col">Rut</th>
+                <th scope="col">E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($eliminados as $key => $value)
+            @if ($value)
+            <tr>
+                <td class="table_danger text-black">{{$key}}</td>
+                @foreach ($value as $newKey => $error)
+                <td class="table-danger text-black">{{$error[0]}}</td>
+                @endforeach
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+    </table>
+    @endif
+
    </div>
 
 
