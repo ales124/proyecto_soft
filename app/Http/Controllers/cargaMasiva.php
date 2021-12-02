@@ -10,7 +10,6 @@ use App\Models\Carrera;
 use Illuminate\Auth\Events\Validated;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Validator;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -91,19 +90,18 @@ class cargaMasiva extends Controller
 
 
                 $validator=Validator::make($auxDatos->request->all(),[
-                    "carrera"=>"exist:carrera,codigo",
+                    "carrera"=>"exists:carreras,codigo",
                     "rut"=>'unique:users,rut',
                     'email'=>'unique:users,email'
                 ]);
 
 
-
-
-
+                $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
+                if (!$validator->fails()) {
 
                    $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
 
-
+                    //dd($validator->getMessageBag());
 
 
 
@@ -121,7 +119,7 @@ class cargaMasiva extends Controller
 
                     ]);
                     $auxAdd["fila" . $fila->getRowIndex()]= $newUser;
-
+                }
 
             }
         }else{
@@ -158,7 +156,7 @@ class cargaMasiva extends Controller
 
                 }
                 $validator=Validator::make($auxDatos->request->all(),[
-                    "carrera"=>"exist:carrera,codigo",
+                    "carrera"=>"exists:carreras,codigo",
                     "rut"=>'unique:users,rut',
                     'email'=>'unique:users,email'
                 ]);

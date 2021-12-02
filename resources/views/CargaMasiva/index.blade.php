@@ -26,6 +26,8 @@
             <tr>
                 <th scope="col">Fila</th>
                 <th scope="col">Nombre estudiante</th>
+                <th scope="col">Rut</th>
+                <th scope="col">E-mail</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,8 @@
             <tr>
                 <td class= "table-succes text-black">{{$key}}</td>
                 <td class= "table-succes text-black">{{$value->name}}</td>
+                <td class= "table-succes text-black">{{$value->rut}}</td>
+                <td class= "table-succes text-black">{{$value->email}}</td>
             </tr>
             @endforeach
         </tbody>

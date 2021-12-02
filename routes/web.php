@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\cargaMasiva;
+use App\Http\Controllers\AnularSolicitudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);
 
 Route::middleware(['rutasAlumno'])->group(function () {
     Route::resource('solicitud', SolicitudController::class);
+    Route::get('anular',[AnularSolicitudController::class,'AnularSolicitud'])->name('anular');
+
 });
 
 Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
@@ -51,6 +54,7 @@ Route::get('alumno/{id}', [BuscarEstudianteController::class,'mostrarEstudiante'
 Route::get('alumno/{alumno_id}/solicitud/{id}', [BuscarEstudianteController::class, 'verDatosSolicitud'])->name('verSolicitudAlumno');
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

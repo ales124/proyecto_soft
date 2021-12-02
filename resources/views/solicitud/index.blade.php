@@ -64,14 +64,22 @@
                         Rechazada
                     </div>
                 </td>
+                @case(4)
+                <td>
+                    <div class="alert alert-danger" role="alert">
+                        Anulado
+                    </div>
+                </td>
                 @break
 
                 @default
 
                 @endswitch
-
+                @if ($solicitud->pivot->estado == 0)
                 <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [$solicitud]) }}>Editar</a></td>
-                <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [$solicitud]) }}>Anular</a></td>
+                <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('anular', ['id' => $solicitud->pivot->id]) }}>Anular</a></td>
+                @endif
+
 
             </tr>
             @empty
