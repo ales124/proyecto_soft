@@ -9,7 +9,7 @@
             <div class="col-lg-6 col-md-8 login-box">
                 <div class="col-lg-12 login-key">
                     <i class="fas fa-users"></i>
-            <div class="login-title" style="margin-left: 70%">Registro del Alumno</div>
+            <div class="login-title" style="margin-left: 70%">Registro del estudiante</div>
             <div class="row">
                 <div class="col-6">
                     <div class="row-12">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-6" >
-                    <table class="table table-striped table-dark table-hover table-sm"style="margin-left: 35%">
+                    <table class="table table-striped table-blue table-hover table-sm"style="margin-left: 35%">
                         <tbody>
                             <tr>
                                 <td>Nombre:</td>
@@ -49,7 +49,7 @@
         <div class="col-lg-6 col-md-6 mt-3 login-box">
             <div class="col-12">
                 <div class="login-title">Solicitudes</div>
-                <table class="table table-striped table-dark table-hover table-sm">
+                <table class="table table-striped table-blue table-hover table-sm">
                     <thead>
                         <th scope="col">N°</th>
                         <th scope="col">Fecha</th>

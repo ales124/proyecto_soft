@@ -24,7 +24,8 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <table class="table table-striped table-dark table-hover table-sm">
+                    <table class="table table-striped table-blue table-hover table-sm">
+
                         <tbody>
                             <tr>
                                 <td>Telefono:</td>
