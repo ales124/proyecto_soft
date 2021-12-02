@@ -18,6 +18,7 @@
                     <form method="POST" action="{{ route('solicitud.update', [$solicitud]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+
                         <input type="text" name="user" value={{Auth::user()->id}} hidden>
                         <input type="text" name="id_solicitud" id="id_solicitud" value={{$solicitud->getOriginal()['pivot_id']}} hidden>
                         @if ($solicitud->tipo == 'Sobrecupo')
@@ -62,7 +63,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalles'] }}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">

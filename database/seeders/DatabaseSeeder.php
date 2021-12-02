@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         'name' => 'Administrador',
         'email' => 'admin@ucn.cl',
         'password' => bcrypt('123123'),
-        'rut' => '198226920',
+        'rut' => '199676377',
         'rol' => 'Administrador',
         'status' => 1,
     ]);

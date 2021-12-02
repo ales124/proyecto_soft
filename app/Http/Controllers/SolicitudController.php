@@ -209,9 +209,17 @@ class SolicitudController extends Controller
      * @param  \App\Models\Solicitud  $solicitud
      * @return \Illuminate\Http\Response
      */
-    public function edit(Solicitud $solicitud)
+    public function edit(String $id)
     {
-        return view('solicitud.edit')->with('solicitud',$solicitud);
+        $getUserWithSol = Auth::user()->solicitudes;
+        foreach($getUserWithSol as $key =>$solicitud){
+            if($solicitud->getOriginal()['pivot_id'] == $id){
+
+
+                return view('solicitud.edit')->with("solicitud",$solicitud);
+            }
+        }
+
     }
 
     /**
@@ -225,7 +233,7 @@ class SolicitudController extends Controller
     {
         switch($solicitud->id){
             case 1:
-                dd($request);
+
                 $request->validate([
                     'telefono' => ['regex:/[0-9]*/','required'],
                     'nrc' => ['required'],
