@@ -333,6 +333,7 @@ class SolicitudController extends Controller
                 foreach($getUserWithSol as $key =>$solicitud){
                     if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
                         $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->detalles = $request->detalle;
                         $solicitud->pivot->nombre_asignatura = $request->nombre;
                         $solicitud->pivot->calificacion_aprob = $request->calificacion;
                         $solicitud->pivot->cant_ayudantias = $request->cantidad;

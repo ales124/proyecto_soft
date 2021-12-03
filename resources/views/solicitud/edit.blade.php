@@ -337,10 +337,10 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group" id="groupTipoFacilidad" hidden>
+                            <div class="form-group" id="groupTipoFacilidad">
                                 <label for="form-control-label" style="color: black">TIPO DE FACILIDAD</label>
                                 <select class="form-control" name="facilidad" id="facilidad">
-                                    <option value={{$solicitud->getOriginal()['pivot_tipo_facilidad']}}> </option>
+                                    <option value={{ null }}>Seleccione..</option>
                                     <option value="Licencia">Licencia Médica o Certificado Médico</option>
                                     <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
                                     <option value="Representacion">Representación de la Universidad</option>
@@ -362,7 +362,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group" id="groupAdjunto" hidden>
+                            <div class="form-group" id="groupAdjunto">
                                 <label class="form-control-label">ADJUNTAR ARCHIVO</label>
                                 <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror"
                                     name="adjunto[]" max="3" multiple>
