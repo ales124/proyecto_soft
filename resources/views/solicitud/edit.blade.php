@@ -15,10 +15,9 @@
 
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form method="POST" action="{{ route('solicitud.update', [$solicitud]) }}" enctype="multipart/form-data">
+                    <form id="formulario" method="POST" action="{{ route('solicitud.update', [$solicitud]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-
                         <input type="text" name="user" value={{Auth::user()->id}} hidden>
                         <input type="text" name="id_solicitud" id="id_solicitud" value={{$solicitud->getOriginal()['pivot_id']}} hidden>
                         @if ($solicitud->tipo == 'Sobrecupo')
@@ -116,7 +115,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{$solicitud->getOriginal()['pivot_detalles']}}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">
@@ -169,7 +168,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{$solicitud->getOriginal()['pivot_detalles']}}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">
@@ -177,14 +176,15 @@
                                 </span>
                                 @enderror
                             </div>
-
+                        </div>
 
 
                         @elseif ($solicitud->tipo == 'Inscripción asignatura')
                         <div class="form-group">
                                 <label class="form-control-label">TELEFONO DE CONTACTO</label>
                                 <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror"
-                                    name="telefono" value="{{ $solicitud->getOriginal()['pivot_telefono'] }}" required>
+                                    name="telefono" value="{{$solicitud->getOrigital()['pivot_telefono']}}" autocomplete="telefono"
+                                    autofocus>
 
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">
@@ -221,7 +221,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalles'] }}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">
@@ -263,7 +263,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalles'] }}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">
@@ -328,7 +328,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">DETALLES DE LA SOLICITUD</label>
                                 <input id="detalle" type="text" class="form-control @error('detalle') is-invalid @enderror"
-                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalle'] }}" required>
+                                    name="detalle" value="{{ $solicitud->getOriginal()['pivot_detalles'] }}" required>
 
                                 @error('detalle')
                                 <span class="invalid-feedback" role="alert">
@@ -340,7 +340,7 @@
                             <div class="form-group" id="groupTipoFacilidad" hidden>
                                 <label for="form-control-label" style="color: black">TIPO DE FACILIDAD</label>
                                 <select class="form-control" name="facilidad" id="facilidad">
-                                    <option value={{$solicitud->getOtiginal()['pivot_tipo_facilidad']}}</option>
+                                    <option value={{$solicitud->getOriginal()['pivot_tipo_facilidad']}}> </option>
                                     <option value="Licencia">Licencia Médica o Certificado Médico</option>
                                     <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
                                     <option value="Representacion">Representación de la Universidad</option>
@@ -380,7 +380,7 @@
 
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <button type="submit" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-outline-primary">{{ __('Editar') }}</button>
+                                <button type="submit" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-outline-primary">{{ __('Actualizar') }}</button>
                             </div>
                         </div>
                         <div class="col-lg-12 py-3">

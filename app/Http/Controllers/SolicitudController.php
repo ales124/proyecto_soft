@@ -232,7 +232,7 @@ class SolicitudController extends Controller
     public function update(Request $request, Solicitud $solicitud)
     {
         switch($solicitud->id){
-            case 1:
+            case '1':
 
                 $request->validate([
                     'telefono' => ['regex:/[0-9]*/','required'],
@@ -241,16 +241,18 @@ class SolicitudController extends Controller
                     'detalle' => ['required']
                 ]);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo,[
-                    'telefono' => $request->telefono,
-                    'NRC' => $request->nrc,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle
-                ]);
+                $getUserWithSol = Auth::user()->solicitudes;
+                foreach($getUserWithSol as $key =>$solicitud){
+                    if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
+                        $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->nrc = $request->nrc;
+                        $solicitud->pivot->nombre_asignatura = $request->nombre;
+                        $solicitud->pivot->detalles = $request->detalle;
+                        $solicitud->pivot->save();
+                    }
+                }
                 return redirect('/solicitud');
-                    break;
+                break;
 
             case '2':
                 $request->validate([
@@ -261,16 +263,18 @@ class SolicitudController extends Controller
 
                 ]);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo, [
-                    'telefono' => $request->telefono,
-                    'NRC' => $request->nrc,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle
-                ]);
+                $getUserWithSol = Auth::user()->solicitudes;
+                foreach($getUserWithSol as $key =>$solicitud){
+                    if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
+                        $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->nrc = $request->nrc;
+                        $solicitud->pivot->nombre_asignatura = $request->nombre;
+                        $solicitud->pivot->detalles = $request->detalle;
+                        $solicitud->pivot->save();
+                    }
+                }
                 return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
-                    break;
+                break;
 
             case '3':
                 $request->validate([
@@ -281,14 +285,16 @@ class SolicitudController extends Controller
 
                 ]);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo, [
-                    'telefono' => $request->telefono,
-                    'NRC' => $request->nrc,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle
-                ]);
+                $getUserWithSol = Auth::user()->solicitudes;
+                foreach($getUserWithSol as $key =>$solicitud){
+                    if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
+                        $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->nrc = $request->nrc;
+                        $solicitud->pivot->nombre_asignatura = $request->nombre;
+                        $solicitud->pivot->detalles = $request->detalle;
+                        $solicitud->pivot->save();
+                    }
+                }
                 return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
@@ -302,14 +308,16 @@ class SolicitudController extends Controller
 
                 ]);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo, [
-                    'telefono' => $request->telefono,
-                    'NRC' => $request->nrc,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle
-                ]);
+                $getUserWithSol = Auth::user()->solicitudes;
+                foreach($getUserWithSol as $key =>$solicitud){
+                    if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
+                        $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->nombre_asignatura = $request->nombre;
+                        $solicitud->pivot->nrc = $request->nrc;
+                        $solicitud->pivot->detalles = $request->detalle;
+                        $solicitud->pivot->save();
+                    }
+                }
                 return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
@@ -321,15 +329,16 @@ class SolicitudController extends Controller
                     'cantidad' => ['numeric','required']
                 ]);
 
-                $findUser = User::find($request->user);
-
-                $findUser->solicitudes()->attach($request->tipo, [
-                    'telefono' => $request->telefono,
-                    'calificacion_aprob' => $request->calificacion,
-                    'nombre_asignatura' => $request->nombre,
-                    'detalles' => $request->detalle,
-                    'cant_ayudantias' => $request->cantidad
-                ]);
+                $getUserWithSol = Auth::user()->solicitudes;
+                foreach($getUserWithSol as $key =>$solicitud){
+                    if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
+                        $solicitud->pivot->telefono = $request->telefono;
+                        $solicitud->pivot->nombre_asignatura = $request->nombre;
+                        $solicitud->pivot->calificacion = $request->calificacion;
+                        $solicitud->pivot->cantidad = $request->cantidad;
+                        $solicitud->pivot->save();
+                    }
+                }
                 return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
                 break;
 
@@ -367,11 +376,11 @@ class SolicitudController extends Controller
                         $solicitud->pivot->save();
                     }
                 }
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud');
 
                 break;
 
-            default:
+                default:
                 # code...
                 break;
 
