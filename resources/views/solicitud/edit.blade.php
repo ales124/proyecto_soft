@@ -183,7 +183,7 @@
                         <div class="form-group">
                                 <label class="form-control-label">TELEFONO DE CONTACTO</label>
                                 <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror"
-                                    name="telefono" value="{{$solicitud->getOrigital()['pivot_telefono']}}" autocomplete="telefono"
+                                    name="telefono" value="{{$solicitud->getOriginal()['pivot_telefono']}}" autocomplete="telefono"
                                     autofocus>
 
                                 @error('telefono')

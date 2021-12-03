@@ -334,8 +334,8 @@ class SolicitudController extends Controller
                     if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
                         $solicitud->pivot->telefono = $request->telefono;
                         $solicitud->pivot->nombre_asignatura = $request->nombre;
-                        $solicitud->pivot->calificacion = $request->calificacion;
-                        $solicitud->pivot->cantidad = $request->cantidad;
+                        $solicitud->pivot->calificacion_aprob = $request->calificacion;
+                        $solicitud->pivot->cant_ayudantias = $request->cantidad;
                         $solicitud->pivot->save();
                     }
                 }
