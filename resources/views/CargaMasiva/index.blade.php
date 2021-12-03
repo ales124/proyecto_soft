@@ -20,11 +20,11 @@
 </form>
 
    @if($nuevos)
-    <h1 class="table-white">Alumnos agregados</h1>
+    <h1 class="table-white">Estudiantes agregados</h1>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Fila</th>
+                <th scope="col">NRC</th>
                 <th scope="col">Nombre estudiante</th>
                 <th scope="col">Rut</th>
                 <th scope="col">E-mail</th>
@@ -45,13 +45,13 @@
 
     @if ($eliminados)
     <h1 claas="text-white">Estudiantes no agregados</h1>
-    <table class="table table-dark">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Fila</th>
+                <th scope="col">NRC</th>
                 <th scope="col">Nombre estudiante</th>
                 <th scope="col">Rut</th>
-                <th scope="col">E-mail</th>
+                <th scope="col">Correo</th>
             </tr>
         </thead>
         <tbody>
