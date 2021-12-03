@@ -42,7 +42,7 @@ Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);
 Route::middleware(['rutasAlumno'])->group(function () {
     Route::resource('solicitud', SolicitudController::class);
     Route::get('anular',[AnularSolicitudController::class,'AnularSolicitud'])->name('anular');
-    Route::get('/solicitud{id}/edit',[SolicitudController::class,'edit'])->name('editarSolicitud');
+    Route::get('/solicitud/{id}/edit',[SolicitudController::class,'edit'])->name('editarSolicitud');
 });
 
 Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
