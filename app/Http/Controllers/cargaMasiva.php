@@ -11,7 +11,9 @@ use Illuminate\Auth\Events\Validated;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\validarRut;
 
 
 class cargaMasiva extends Controller
@@ -42,11 +44,13 @@ class cargaMasiva extends Controller
         ]);
 
 
+
         $doc = IOFactory::load($request->file);
         $hoja1= $doc->getSheet(0);
 
         if(is_numeric($hoja1->getCell('A1')->getValue())){
             $auxHeader=false;
+
 
         }else{
             $auxHeader=true;
@@ -54,8 +58,24 @@ class cargaMasiva extends Controller
 
         if($auxHeader){
 
+
+            foreach ($hoja1->getRowIterator(1, null) as $key =>$fila) {
+                foreach ($fila->getCellIterator() as $key =>$celda) {
+                    if($celda->getValue()==""){
+
+                        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'No hay datos en el excel');
+                    }else{
+                        break;
+                    }
+
+                }
+            }
+
             foreach($hoja1->getRowIterator(2,null) as $key =>$fila){
                 foreach($fila->getCellIterator() as $key =>$celda){
+
+
+
                     switch ($celda->getColumn()){
 
 
@@ -92,7 +112,7 @@ class cargaMasiva extends Controller
 
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exists:carreras,codigo",
-                    "rut"=>'unique:users,rut',
+                    "rut"=>['unique:users,rut',new validarRut()],
                     'email'=>'unique:users,email'
                 ]);
 

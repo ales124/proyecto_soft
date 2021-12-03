@@ -24,10 +24,10 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">NRC</th>
+                <th scope="col">Fila</th>
                 <th scope="col">Nombre estudiante</th>
                 <th scope="col">Rut</th>
-                <th scope="col">E-mail</th>
+                <th scope="col">Correo</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">NRC</th>
+                <th scope="col">Fila</th>
                 <th scope="col">Nombre estudiante</th>
                 <th scope="col">Rut</th>
                 <th scope="col">Correo</th>
