@@ -15,7 +15,7 @@
             </div>
     <input type="file" id="adjunto" name="file" >
     <div style="text-align: center;">
-      <button>Subir</button>
+      <button style="background-color: #003057;border-color:#003057; color:white;">Subir</button>
     </div>
 </form>
 
@@ -24,7 +24,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Fila</th>
+                <th scope="col">Codigo Carrera</th>
                 <th scope="col">Nombre estudiante</th>
                 <th scope="col">Rut</th>
                 <th scope="col">Correo</th>
@@ -33,7 +33,7 @@
         <tbody>
             @foreach ($nuevos as $key=>$value )
             <tr>
-                <td class= "table-succes text-black">{{$key}}</td>
+                <td class= "table-succes text-black">{{$value->carrera->codigo}}</td>
                 <td class= "table-succes text-black">{{$value->name}}</td>
                 <td class= "table-succes text-black">{{$value->rut}}</td>
                 <td class= "table-succes text-black">{{$value->email}}</td>
@@ -58,7 +58,7 @@
             @foreach ($eliminados as $key => $value)
             @if ($value)
             <tr>
-                <td class="table_danger text-black">{{$key}}</td>
+                <td class="table_danger text-black">{{$key }}</td>
                 @foreach ($value as $newKey => $error)
                 <td class="table-danger text-black">{{$error[0]}}</td>
                 @endforeach

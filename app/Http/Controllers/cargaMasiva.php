@@ -113,24 +113,29 @@ class cargaMasiva extends Controller
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exists:carreras,codigo",
                     "rut"=>['unique:users,rut',new validarRut()],
-                    'email'=>'unique:users,email'
+                    'email'=>['unique:users,email','regex:/(.*)@ucn\.cl$/i']
                 ]);
 
 
                 $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
+                $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+
+
                 if (!$validator->fails()) {
 
-                   $carrera=Carrera::where('codigo', $auxDatos->request->all()["carrera"])->first();
+
+
 
                     //dd($validator->getMessageBag());
 
 
 
-                    $nuevaContrase単a = substr($auxDatos->request->all()["rut"],0,6);
+                    $nuevaContraseña = substr($auxDatos->request->all()["rut"],0,6);
+                    $newUser= $carrera;
                     $newUser=User::create([
                         'name'=> $auxDatos->request->all()["nombre"],
                         'email'=> $auxDatos->request->all()["email"],
-                        'password'=>Hash::make($nuevaContrase単a),
+                        'password'=>Hash::make($nuevaContraseña),
                         'rut'=> $auxDatos->request->all()["rut"],
                         'rol'=>"Alumno",
                         'status'=>1,
@@ -178,13 +183,14 @@ class cargaMasiva extends Controller
                 }
                 $validator=Validator::make($auxDatos->request->all(),[
                     "carrera"=>"exists:carreras,codigo",
-                    "rut"=>'unique:users,rut',
-                    'email'=>'unique:users,email'
+                    "rut"=>['unique:users,rut',new validarRut()],
+                    'email'=>['unique:users,email,','regex:/(.*)@ucn\.cl$/i']
                 ]);
 
                 $auxErrores["fila" . $fila->getRowIndex()]= $validator->getMessageBag()->getMessages();
+                $carrera=Carrera::where('codigo',$auxDatos->request->all()["carrera"])->first();
                 if(!$validator->fails()){
-                    $carrera=Carrera::where('codigo',$auxDatos->request->all()["carrera"])->first();
+
 
 
 
@@ -215,7 +221,7 @@ class cargaMasiva extends Controller
 
 
        // return view('auth.CargaMasiva.index',compact('auxAdd'));
-        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores);
+        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('carrera',$carrera);
     }
 
 
