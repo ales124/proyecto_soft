@@ -16,7 +16,7 @@
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    Buscar Alumno
+                    Buscar estudiante (Ejemplo: 12345678k)
                 </div>
 
                 <div class="col-lg-12 login-form">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-lg-12 py-3">
                                 <div class="col-lg-12 text-center">
-                                    <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                                    <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
                                 </div>
                             </div>
                         </form>

@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <table class="table table-striped table-blue table-hover table-sm table-success">
+                    <table class="table table-striped">
 
                         <tbody>
                             <tr>

@@ -10,7 +10,7 @@
         @endif
             <div class="col-lg-12 py-3">
                 <div class="col-lg-12 text-left">
-                    <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+                    <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
                 </div>
             </div>
     <input type="file" id="adjunto" name="file" >
