@@ -30,10 +30,13 @@
                 <th style="width: 10%" scope="col">Acción</th>
             </tr>
         </thead>
+        {{-- {{ $solicitud->getOriginal()['pivot_update_at'] }}--}}
         <tbody>
             @forelse ($solicitudes as $solicitud)
             <tr>
-                <th scope="row">{{ $solicitud->getOriginal()['pivot_updated_at'] }}</th>
+                <th scope="row">
+                    {{date_format(date_create($solicitud->getOriginal()['pivot_updated_at']),"d/m/Y H:i:s") }}
+                </th>
                 <td>{{ $solicitud->getOriginal()['pivot_id'] }}</td>
                 <td>{{$solicitud->tipo}}</td>
                 @switch($solicitud->getOriginal()['pivot_estado'])
