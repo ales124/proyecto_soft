@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-6" >
-                    <table class="table table-striped table-blue table-hover table-sm table-success" style="margin-left: 35%">
+                    <table class="table table-striped" style="margin-left: 35%">
                         <tbody>
                             <tr>
                                 <td>Nombre:</td>
@@ -49,7 +49,7 @@
         <div class="col-lg-6 col-md-6 mt-3 login-box">
             <div class="col-12">
                 <div class="login-title">Solicitudes</div>
-                <table class="table table-striped table-blue table-hover table-sm table-success">
+                <table class="table table-striped">
                     <thead>
                         <th scope="col">N°</th>
                         <th scope="col">Fecha</th>
@@ -70,7 +70,7 @@
                         @empty
                         <tr>
                             <td colspan="4">
-                                <p>Sin Solicitudes</p>
+                                <p>Sin solicitudes</p>
                             </td>
                         </tr>
 
@@ -84,7 +84,7 @@
     </div>
     <div class="col-lg-12 py-3">
         <div class="col-lg-12 text-center">
-            <a href="http://127.0.0.1:8000/buscar-estudiante" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+            <a href="http://127.0.0.1:8000/buscar-estudiante" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
     </div>
 @endsection

@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col col-3">
-            <a href="http://127.0.0.1:8000/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atras') }}</a>
+            <a href="http://127.0.0.1:8000/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
         <div class="col col-7">
             <p class="text-center" style="font-size: x-large">Mis solicitudes</p>
@@ -101,9 +101,9 @@
                 if (listaSolicitudes.length === 0) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
+                        title: 'ERROR',
                         text: 'No hay solicitudes ingresadas',
-                        footer: 'Para crear una solicitud has&nbsp;<a href="/solicitud/create">click aquí</a>'
+                        footer: 'Para crear una solicitud haz&nbsp;<a href="/solicitud/create">click aquí</a>'
                     }).then((result) => {
                         window.location.href = '/home'
                     })
