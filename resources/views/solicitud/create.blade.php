@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atrás') }}</a>                            </div>
+                                <a href="/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atrás') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
@@ -373,7 +373,7 @@
                 break;
     }
 
-    
+
 
 
 

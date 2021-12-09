@@ -16,7 +16,7 @@ $jefe = false;
 <div class="container">
     <div class="row mb-3">
         <div class="col col-2" style="text-align: left;">
-            <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+            <a href="/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
         <div class="col col-8">
             <p class="text-center" style="font-size: x-large">Administrar carreras</p>
