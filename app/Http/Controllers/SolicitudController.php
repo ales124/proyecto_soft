@@ -158,7 +158,7 @@ class SolicitudController extends Controller
                     'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
                     'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:10000'],
                 ]);
 
                 $findUser = User::find($request->user);
@@ -351,7 +351,7 @@ class SolicitudController extends Controller
                     'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
                     'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ-]))+$/'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:10000'],
                 ]);
 
                 $findUser = User::find($request->user);
