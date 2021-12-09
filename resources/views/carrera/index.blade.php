@@ -37,6 +37,9 @@ $jefe = false;
         <tbody>
             @foreach ($carreras as $carrera)
             <tr>
+                <th scope ="row">
+                    {{date_format(date_create($carrera->getOriginal()['updated_at']),"d/m/Y H:i:s") }}
+                     </th>
                 <th scope="row">{{$carrera->codigo}}</th>
                 <td>{{$carrera->nombre}}</td>
                 <td>{{$carrera->created_at}}</td>

@@ -47,6 +47,9 @@
         <tbody>
             @foreach ($usuarios as $usuario)
             <tr>
+                <th scope="row">
+                    {{date_format(date_create($usuario->getOriginal()['updated_at']),"d/m/Y H:i:s") }}
+                </th>
                 <th scope="row">{{$usuario->rut}}</th>
                 <td>{{$usuario->created_at}}</td>
                 <td>{{$usuario->name}}</td>
