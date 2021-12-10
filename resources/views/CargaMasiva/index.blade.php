@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (session('error'))
+   <div class="alert alert-danger">
+        {{ session('error') }}
+   </div>
+@endif
 
 <form  method="post" style="text-align: center;" action="{{route('cargaMasiva')}}" enctype="multipart/form-data" name="adjunto">
     @csrf
+
     @if (Session::has('message'))
     <p>{{Session::get('message')}}</p>
         @endif
@@ -70,6 +75,9 @@
     @endif
 
    </div>
+
+
+
 
 
 

@@ -25,7 +25,7 @@ class cargaMasiva extends Controller
 
         $auxErrores=[];
         $auxAdd=[];
-        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores);
+        return view('cargamasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores);
 
     }
 
@@ -39,9 +39,18 @@ class cargaMasiva extends Controller
         $auxErrores=[];
         $auxAdd=[];
 
-        $request->validate([
+
+
+
+        $validator2=Validator::make($request->all(),[
+
             "file" => 'mimes:xls,xlsx|required'
+
         ]);
+
+        if ($validator2->fails()) {
+            return redirect('cargamasiva')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'el archivo no es un excel');
+          }
 
 
 
@@ -63,7 +72,7 @@ class cargaMasiva extends Controller
                 foreach ($fila->getCellIterator() as $key =>$celda) {
                     if($celda->getValue()==""){
 
-                        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'No hay datos en el excel');
+                        return redirect('cargamasiva')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'No hay datos en el excel');
                     }else{
                         break;
                     }
@@ -221,7 +230,7 @@ class cargaMasiva extends Controller
 
 
        // return view('auth.CargaMasiva.index',compact('auxAdd'));
-        return view('CargaMasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('carrera',$carrera);
+        return view('cargamasiva.index')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('carrera',$carrera);
     }
 
 

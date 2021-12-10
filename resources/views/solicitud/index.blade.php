@@ -2,8 +2,8 @@
 
 @section('content')
 
-@if (session('success'))
-    <div class="alert alert-success">
+@if (session('error'))
+    <div class="table-danger text-black">
 
     </div>
 @endif
