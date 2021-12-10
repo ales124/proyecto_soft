@@ -45,8 +45,8 @@ Route::middleware(['rutasAlumno'])->group(function () {
     Route::get('/solicitud/{id}/edit',[SolicitudController::class,'edit'])->name('editarSolicitud');
 });
 
-Route::get('CargaMasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
-Route::post('cargaMasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
+Route::get('cargamasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
+Route::post('cargamasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
 Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');
