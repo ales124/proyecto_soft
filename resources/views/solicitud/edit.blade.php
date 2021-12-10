@@ -341,11 +341,23 @@
                                 <label for="form-control-label" style="color: black">TIPO DE FACILIDAD</label>
                                 <select class="form-control" name="facilidad" id="facilidad">
                                     <option value={{ null }}>Seleccione..</option>
-                                    <option value="Licencia">Licencia Médica o Certificado Médico</option>
-                                    <option value="Inasistencia Fuerza Mayor">Inasistencia por Fuerza Mayor</option>
-                                    <option value="Representacion">Representación de la Universidad</option>
-                                    <option value="Inasistencia Motivo Personal">Inasistencia a Clases por Motivos
-                                        Familiares</option>
+                                <option value="Licencia" @if ($solicitud->getOriginal()['pivot_tipo_facilidad'] ==
+                                    "Licencia")
+                                    selected
+                                    @endif>Licencia Médica o Certificado Médico</option>
+                                <option value="Inasistencia Fuerza Mayor" @if ($solicitud->
+                                    getOriginal()['pivot_tipo_facilidad'] == "Inasistencia Fuerza Mayor")
+                                    selected
+                                    @endif>Inasistencia por Fuerza Mayor</option>
+                                <option value="Representacion" @if ($solicitud->getOriginal()['pivot_tipo_facilidad'] ==
+                                    "Representacion")
+                                    selected
+                                    @endif>Representación de la Universidad</option>
+                                <option value="Inasistencia Motivo Personal" @if ($solicitud->
+                                    getOriginal()['pivot_tipo_facilidad'] == "Inasistencia Motivo Personal")
+                                    selected
+                                    @endif>Inasistencia a Clases por Motivos
+                                    Familiares</option>
                                 </select>
                             </div>
 
@@ -385,7 +397,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+                                <a href="/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
                             </div>
                         </div>
 

@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/usuario" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+                                <a href="/usuario" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
                             </div>
                         </div>
                     </form>
@@ -98,7 +98,7 @@
                         icon: 'error',
                         title: 'ERROR',
                         text: 'No puedes crear usuarios sin tener carreras en el sistema!',
-                        footer: 'Para crear carreras haz&nbsp;<a href="/carrera/create">click aca</a>'
+                        footer: 'Para crear carreras haz&nbsp;<a href="/carrera/create">click aquí</a>'
                     }).then((result) => {
                         window.location.href = '/usuario'
                     })

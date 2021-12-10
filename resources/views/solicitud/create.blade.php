@@ -21,12 +21,12 @@
                             <label for="form-control-label" >Tipo Solicitud</label>
                             <select class="form-control" name="tipo" id="tipo">
                                 <option value={{ null }}>Seleccione..</option>
-                                <option value="1">Solicitud de sobrecupo</option>
-                                <option value="2">Solicitud de cambio de paralelo</option>
-                                <option value="3">Solicitud de eliminación de asignatura</option>
-                                <option value="4">Solicitud de inscripción de asignatura</option>
-                                <option value="5">Solicitud de ayudantía</option>
-                                <option value="6">Solicitud de facilidades académicas</option>
+                                <option value="1" @if (old('tipo')=="1") selected @endif>Solicitud de sobrecupo</option>
+                                <option value="2" @if (old('tipo')=="2") selected @endif>Solicitud de cambio de paralelo</option>
+                                <option value="3" @if (old('tipo')=="3") selected @endif>Solicitud de eliminación de asignatura</option>
+                                <option value="4" @if (old('tipo')=="4") selected @endif>Solicitud de inscripción de asignatura</option>
+                                <option value="5" @if (old('tipo')=="5") selected @endif>Solicitud de ayudantía</option>
+                                <option value="6" @if (old('tipo')=="6") selected @endif>Solicitud de facilidades académicas</option>
                             </select>
                         </div>
                         <br>
@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-lg-12 py-3">
                             <div class="col-lg-12 text-center">
-                                <a href="http://127.0.0.1:8000/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atrás') }}</a>                            </div>
+                                <a href="/solicitud" style="background-color: #003057;border-color:#003057; color:white" type="button" id="button" class="btn btn-outline-primary">{{ __('Atrás') }}</a>                            </div>
                         </div>
                     </form>
                 </div>
@@ -285,6 +285,95 @@
             }
         })
     })
+
+    switch({!! json_encode(old('tipo'))!!}){
+        case "1":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = false;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = false
+                break;
+            case "2":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = false;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = false
+                break;
+            case "3":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = false;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = false
+                break;
+            case "4":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = false;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = false
+                break;
+            case "5":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = true;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = false;
+                inputCantidad.hidden = false;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = false
+                break;
+            case "6":
+                inputTelefono.hidden = false;
+                inputNrc.hidden = true;
+                inputNombre.hidden = false;
+                inputDetalles.hidden = false;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = false;
+                inputProfesor.hidden = false;
+                inputAdjunto.hidden = false;
+                button.hidden = false
+                break;
+            default:
+                inputTelefono.hidden = true;
+                inputNrc.hidden = true;
+                inputNombre.hidden = true;
+                inputDetalles.hidden = true;
+                inputCalificacion.hidden = true;
+                inputCantidad.hidden = true;
+                inputTipoFacilidad.hidden = true;
+                inputProfesor.hidden = true;
+                inputAdjunto.hidden = true;
+                button.hidden = true
+                break;
+    }
+
+
 
 
 

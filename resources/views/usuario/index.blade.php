@@ -9,7 +9,7 @@
             <form method="GET" action="{{ route('usuario.index') }}">
 
                     <div class="col col-2">
-                        <a href="http://127.0.0.1:8000/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+                        <a href="/home" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
                     </div>
 
                 <div class="card">
@@ -47,6 +47,9 @@
         <tbody>
             @foreach ($usuarios as $usuario)
             <tr>
+                <th scope="row">
+                    {{date_format(date_create($usuario->getOriginal()['updated_at']),"d/m/Y H:i:s") }}
+                </th>
                 <th scope="row">{{$usuario->rut}}</th>
                 <td>{{$usuario->created_at}}</td>
                 <td>{{$usuario->name}}</td>

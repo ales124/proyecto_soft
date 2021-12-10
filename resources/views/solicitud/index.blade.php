@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col col-3">
-            <a href="http://127.0.0.1:8000/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+            <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
         <div class="col col-7">
             <p class="text-center" style="font-size: x-large">Mis solicitudes</p>
@@ -30,10 +30,13 @@
                 <th style="width: 10%" scope="col">Acción</th>
             </tr>
         </thead>
+        {{-- {{ $solicitud->getOriginal()['pivot_update_at'] }}--}}
         <tbody>
             @forelse ($solicitudes as $solicitud)
             <tr>
-                <th scope="row">{{ $solicitud->getOriginal()['pivot_updated_at'] }}</th>
+                <th scope="row">
+                    {{date_format(date_create($solicitud->getOriginal()['pivot_updated_at']),"d/m/Y H:i:s") }}
+                </th>
                 <td>{{ $solicitud->getOriginal()['pivot_id'] }}</td>
                 <td>{{$solicitud->tipo}}</td>
                 @switch($solicitud->getOriginal()['pivot_estado'])
