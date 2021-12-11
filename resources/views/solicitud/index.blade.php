@@ -2,8 +2,15 @@
 
 @section('content')
 
+@section('content')
 @if (session('error'))
-    <div class="table-danger text-black">
+   <div class="alert alert-danger">
+        {{ session('error') }}
+   </div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
 
     </div>
 @endif

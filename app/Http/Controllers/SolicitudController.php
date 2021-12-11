@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+
 class SolicitudController extends Controller
 {
     /**
@@ -158,19 +159,66 @@ class SolicitudController extends Controller
                     'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
                     'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:10000'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,xls,xlsx'],
                 ]);
 
                 $findUser = User::find($request->user);
 
                 $aux = 0;
+                $aux2 = 0;
+
+
+                //crear un foreach antes para pillar el error de mas de 3 archivos
+
+
+                foreach ($request->adjunto as $file) {
+                    $aux2++;
+                }
+                if($aux2>3){
+
+
+                    return redirect('/solicitud')->with('error', 'ingreso mas de 3 archivos');
+                }
 
                 foreach ($request->adjunto as $file) {
 
-                    $name = $aux.time().'-'.$findUser->name.'.pdf';
+
+                    $mimeType=$file->getMimeType();
+
+                    $dato = substr( $mimeType,0,1);
+
+
+                    if($dato=="a"){
+
+
+
+                    $mime = substr( $mimeType,12,100);
+
+                    $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
                     $file->move(public_path('\storage\docs'), $name);
                     $datos[] = $name;
                     $aux++;
+
+                    }
+
+                    if($dato=="i"){
+
+
+                        $mime = substr( $mimeType,6,100);
+
+                        $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
+                        $file->move(public_path('\storage\docs'), $name);
+                        $datos[] = $name;
+                        $aux++;
+
+                    }
+
+
+
+
+
                 }
 
                 $findUser->solicitudes()->attach($request->tipo, [
@@ -357,10 +405,22 @@ class SolicitudController extends Controller
                 $findUser = User::find($request->user);
 
                 $aux = 0;
+                $aux2 = 0;
+
+                foreach ($request->adjunto as $file) {
+                    $aux2++;
+                }
+                if($aux2>3){
+
+
+                    return redirect('/solicitud')->with('error', 'ingreso mas de 3 archivos');
+                }
 
                 foreach ($request->adjunto as $file) {
 
-                    $name = $aux.time().'-'.$findUser->name.'.pdf';
+                    $mimeType=$file->getMimeType();
+
+                    $name = $aux.time().'-'.$findUser->name.$mimeType;
                     $file->move(public_path('\storage\docs'), $name);
                     $datos[] = $name;
                     $aux++;
