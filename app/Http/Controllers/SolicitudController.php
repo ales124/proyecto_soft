@@ -168,7 +168,20 @@ class SolicitudController extends Controller
                 $aux2 = 0;
 
 
-                //crear un foreach antes para pillar el error de mas de 3 archivos
+
+                if(!$request->adjunto){
+
+                    $findUser->solicitudes()->attach($request->tipo, [
+                        'telefono' => $request->telefono,
+                        'nombre_asignatura' => $request->nombre,
+                        'detalles' => $request->detalle,
+                        'tipo_facilidad' => $request->facilidad,
+                        'nombre_profesor' => $request->profesor,
+                        'archivos' => 0,
+                    ]);
+                    return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                }
+
 
 
                 foreach ($request->adjunto as $file) {
