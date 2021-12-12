@@ -457,14 +457,21 @@ class SolicitudController extends Controller
                     if($dato=="a"){
 
 
+                        $dato2=substr( $mimeType,12,1);
 
-                    $mime = substr( $mimeType,12,100);
 
-                    $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+                        if($dato2=="p"){
 
-                    $file->move(public_path('\storage\docs'), $name);
-                    $datos[] = $name;
-                    $aux++;
+                            $mime = substr( $mimeType,12,100);
+
+                            $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
+                            $file->move(public_path('\storage\docs'), $name);
+                            $datos[] = $name;
+                            $aux++;
+                        }else{
+                            return redirect('/solicitud')->with('error', 'El tipo de archivo no es permitido');
+                        }
 
                     }
 
