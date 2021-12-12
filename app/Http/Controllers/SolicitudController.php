@@ -420,6 +420,20 @@ class SolicitudController extends Controller
                 $aux = 0;
                 $aux2 = 0;
 
+
+                if(!$request->adjunto){
+
+                    $findUser->solicitudes()->attach($request->tipo, [
+                        'telefono' => $request->telefono,
+                        'nombre_asignatura' => $request->nombre,
+                        'detalles' => $request->detalle,
+                        'tipo_facilidad' => $request->facilidad,
+                        'nombre_profesor' => $request->profesor,
+                        'archivos' => 0,
+                    ]);
+                    return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                }
+
                 foreach ($request->adjunto as $file) {
                     $aux2++;
                 }
@@ -433,11 +447,37 @@ class SolicitudController extends Controller
 
                     $mimeType=$file->getMimeType();
 
-                    $name = $aux.time().'-'.$findUser->name.$mimeType;
+                    $dato = substr( $mimeType,0,1);
+
+
+                    if($dato=="a"){
+
+
+
+                    $mime = substr( $mimeType,12,100);
+
+                    $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
                     $file->move(public_path('\storage\docs'), $name);
                     $datos[] = $name;
                     $aux++;
+
+                    }
+
+                    if($dato=="i"){
+
+
+                        $mime = substr( $mimeType,6,100);
+
+                        $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
+                        $file->move(public_path('\storage\docs'), $name);
+                        $datos[] = $name;
+                        $aux++;
+
+                    }
                 }
+
                 $getUserWithSol = Auth::user()->solicitudes;
                 foreach($getUserWithSol as $key =>$solicitud){
                     if($solicitud->getOriginal()["pivot_id"] == $request->id_solicitud){
