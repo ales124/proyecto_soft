@@ -159,7 +159,7 @@ class SolicitudController extends Controller
                     'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
                     'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,xls,xlsx'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,xls,xlsx,png','max:10000'],
                 ]);
 
                 $findUser = User::find($request->user);
@@ -171,15 +171,8 @@ class SolicitudController extends Controller
 
                 if(!$request->adjunto){
 
-                    $findUser->solicitudes()->attach($request->tipo, [
-                        'telefono' => $request->telefono,
-                        'nombre_asignatura' => $request->nombre,
-                        'detalles' => $request->detalle,
-                        'tipo_facilidad' => $request->facilidad,
-                        'nombre_profesor' => $request->profesor,
-                        'archivos' => 0,
-                    ]);
-                    return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+
+                    return redirect('/solicitud')->with('error','No ingreso ningun archivo');
                 }
 
 
@@ -201,21 +194,32 @@ class SolicitudController extends Controller
                     $dato = substr( $mimeType,0,1);
 
 
+
                     if($dato=="a"){
 
 
+                        $dato2=substr( $mimeType,12,1);
 
-                    $mime = substr( $mimeType,12,100);
 
-                    $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+                        if($dato2=="p"){
 
-                    $file->move(public_path('\storage\docs'), $name);
-                    $datos[] = $name;
-                    $aux++;
+                            $mime = substr( $mimeType,12,100);
+
+                            $name = $aux.time().'-'.$findUser->name.'.'.$mime;
+
+                            $file->move(public_path('\storage\docs'), $name);
+                            $datos[] = $name;
+                            $aux++;
+                        }else{
+                            return redirect('/solicitud')->with('error', 'El tipo de archivo no es permitido');
+                        }
+
+
 
                     }
 
                     if($dato=="i"){
+
 
 
                         $mime = substr( $mimeType,6,100);
@@ -412,7 +416,7 @@ class SolicitudController extends Controller
                     'detalle' => ['string','required','max:255'],
                     'facilidad' => ['required'],
                     'profesor' => ['required','regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ-]))+$/'],
-                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx','max:10000'],
+                    'adjunto.*' => ['mimes:pdf,jpg,jpeg,doc,docx,png,xls,xlsx','max:10000'],
                 ]);
 
                 $findUser = User::find($request->user);
