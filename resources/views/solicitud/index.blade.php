@@ -87,7 +87,14 @@
                 @endswitch
                 @if ($solicitud->pivot->estado == 0)
                 <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [ $solicitud->pivot->id]) }}>Editar</a></td>
-                <td> <form id="anularr" method="GET" action="{{ route('anular', ['id' => $solicitud->pivot->id]) }}"><button type="submit" class="btn btn-info" id="anular" style="color: white; background-color: grey; border-color:grey">Anular</button></form> </td>
+                <td>
+                    <form class="anularr" method="POST" action="{{route('anular')}}">
+                        @csrf
+                        <input type="text" value="{{$solicitud->getOriginal()['pivot_id'] }}" name="id" hidden>
+                        <button type="sumbit" class="btn btn-info anular" 
+                            style="color: white; background-color: grey; border-color:grey">Anular</button>
+                    </form>
+                </td>
                 @endif
 
 
@@ -105,28 +112,6 @@
 </div>
 
 <script>
-    const button = document.getElementById('anular');
-    const form = document.getElementById('anularr')
-    button.addEventListener('click', function(e){
-        e.preventDefault();
-        Swal.fire({
-            title: 'Una vez creada la carrera, esta no se podrá eliminar. ¿Quieres continuar?',
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: 'Aceptar',
-            denyButtonText: `Cancelar`,
-            }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                form.submit();
-            } else if (result.isDenied) {
-                Swal.fire('No guardado', '', 'info')
-            }
-        })
-    })
-</script>
-
-<script>
     const solicitudSelect = document.getElementById('solicitud');
     const listaSolicitudes = {!! json_encode($solicitudes) !!}
                 console.log(listaSolicitudes);
@@ -140,6 +125,32 @@
                         window.location.href = '/home'
                     })
                 }
+    
+    const button = document.getElementsByClassName('anular');
+    const form = document.getElementsByClassName('anularr');
+
+    for(let i=0; i< button.length; i++){
+        button[i].addEventListener('click', function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Una vez creada la carrera, esta no se podrá eliminar. ¿Quieres continuar?',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Aceptar',
+                denyButtonText: `Cancelar`,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+             if (result.isConfirmed) {
+                form[i].submit();
+            } else if (result.isDenied) {
+                Swal.fire('No guardado', '', 'info')
+             }
+            })
+        })
+    }
+    
 </script>
+
+
 
 @endsection
