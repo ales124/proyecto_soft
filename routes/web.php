@@ -41,7 +41,7 @@ Route::resource('usuario', UsuarioController::class,['middleware' => 'auth']);
 
 Route::middleware(['rutasAlumno'])->group(function () {
     Route::resource('solicitud', SolicitudController::class);
-    Route::post('anular',[AnularSolicitudController::class,'AnularSolicitud'])->name('anular');
+    Route::get('anular',[AnularSolicitudController::class,'AnularSolicitud'])->name('anular');
     Route::get('/solicitud/{id}/edit',[SolicitudController::class,'edit'])->name('editarSolicitud');
 });
 

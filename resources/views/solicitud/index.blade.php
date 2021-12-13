@@ -18,15 +18,13 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col col-3">
-            <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" 
-            id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
+            <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
         <div class="col col-7">
             <p class="text-center" style="font-size: x-large">Mis solicitudes</p>
         </div>
         <div class="col col-2">
-            <a class="btn btn-success btn-block" href="solicitud/create"> <i class="fas fa-plus"></i> + Nueva 
-                solicitud</a>
+            <a class="btn btn-success btn-block" href="solicitud/create"> <i class="fas fa-plus"></i> + Nueva solicitud</a>
         </div>
     </div>
     <table class="table table-hover">
@@ -89,14 +87,7 @@
                 @endswitch
                 @if ($solicitud->pivot->estado == 0)
                 <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('solicitud.edit', [ $solicitud->pivot->id]) }}>Editar</a></td>
-                <td>
-                    <form class="anularr" method="POST" action="{{route('anular')}}">
-                        @csrf
-                        <input type="text" value="{{$solicitud->getOriginal()['pivot_id'] }}" name="id" hidden>
-                        <button type="sumbit" class="btn btn-info anular" 
-                            style="color: white; background-color: grey; border-color:grey">Anular</button>
-                    </form>
-                </td>
+                <td><a class="btn btn-info" style="color: white; background-color: grey; border-color:grey" href={{ route('anular', ['id' => $solicitud->pivot->id]) }}>Anular</a></td>
                 @endif
 
 
@@ -127,32 +118,6 @@
                         window.location.href = '/home'
                     })
                 }
-    
-    const button = document.getElementsByClassName('anular');
-    const form = document.getElementsByClassName('anularr');
-
-    for(let i=0; i< button.length; i++){
-        button[i].addEventListener('click', function(e){
-            e.preventDefault();
-            Swal.fire({
-                title: 'Una vez creada la carrera, esta no se podrá eliminar. ¿Quieres continuar?',
-                showDenyButton: true,
-                showCancelButton: false,
-                confirmButtonText: 'Aceptar',
-                denyButtonText: `Cancelar`,
-            }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-             if (result.isConfirmed) {
-                form[i].submit();
-            } else if (result.isDenied) {
-                Swal.fire('No guardado', '', 'info')
-             }
-            })
-        })
-    }
-    
 </script>
-
-
 
 @endsection
