@@ -183,7 +183,7 @@ class SolicitudController extends Controller
                 if($aux2>3){
 
 
-                    return redirect('/solicitud')->with('error', 'ingreso mas de 3 archivos');
+                    return redirect('/solicitud')->with('error', 'Máximo 3 archivos adjuntos');
                 }
 
                 foreach ($request->adjunto as $file) {
