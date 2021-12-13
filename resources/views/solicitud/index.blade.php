@@ -133,11 +133,11 @@
         button[i].addEventListener('click', function(e){
             e.preventDefault();
             Swal.fire({
-                title: 'Una vez creada la carrera, esta no se podrá eliminar. ¿Quieres continuar?',
+                title: '¿Está seguro que desea anular la solicitud?',
                 showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: 'Aceptar',
-                denyButtonText: `Cancelar`,
+                confirmButtonText: 'Sí',
+                denyButtonText: 'No',
             }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
              if (result.isConfirmed) {
