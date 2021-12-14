@@ -36,8 +36,9 @@
     <table class="table table-white">
         <thead>
             <tr>
-                <th style="width: 10%" scope="col">Rut</th>
+                
                 <th style="width: 20%" scope="col">Fecha/Hora Creacion</th>
+                <th style="width: 10%" scope="col">Rut</th>
                 <th style="width: 25%" scope="col">Nombre</th>
                 <th style="width: 25%" scope="col">Correo</th>
                 <th style="width: 20%" scope="col">Rol</th>
@@ -51,7 +52,7 @@
                     {{date_format(date_create($usuario->getOriginal()['updated_at']),"d/m/Y H:i:s") }}
                 </th>
                 <th scope="row">{{$usuario->rut}}</th>
-                <td>{{$usuario->created_at}}</td>
+                
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
                 <td>{{$usuario->rol}}</td>
