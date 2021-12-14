@@ -49,7 +49,7 @@ class cargaMasiva extends Controller
         ]);
 
         if ($validator2->fails()) {
-            return redirect('cargamasiva')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'el archivo no es un excel');
+            return redirect('cargamasiva')->with('nuevos',$auxAdd)->with('eliminados',$auxErrores)->with('error', 'El archivo no posee el formato permitido (excel).');
           }
 
 
