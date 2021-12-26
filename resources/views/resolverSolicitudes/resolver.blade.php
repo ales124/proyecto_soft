@@ -9,7 +9,7 @@
         <div class="col col-3">
             <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
-        
+
         <div class="col col-7">
             <p class="text-center" style="font-size: x-large">Solicitudes</p>
         </div>
@@ -25,7 +25,7 @@
             </div>
          </div>
     </div>
-    
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -50,7 +50,7 @@
 
 
             <tr>
-                @if ($solicitud->pivot->estado != 4)
+                @if ($solicitud->pivot->estado == 0)
                 <th scope="row">
                     {{date_format(date_create($solicitud->getOriginal()['pivot_updated_at']),"d/m/Y H:i:s") }}
                 </th>
@@ -61,7 +61,7 @@
                 <td>{{$user->email}}</td>
                 <td>{{$solicitud->getOriginal()['pivot_telefono']}}</td>
                 <td>{{$solicitud->getOriginal()['pivot_detalles']}}</td>
-                
+
                 <td><a style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info" href= "" >Ver</a></td>
                 @endif
 
