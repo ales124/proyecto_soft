@@ -13,17 +13,25 @@
         <div class="col col-7">
             <p class="text-center" style="font-size: x-large">Solicitudes</p>
         </div>
-        <div class="card">
-            <div class="card-deck">
-                <i class="fas fa-users fa-10x text-center"></i>
-                <div class="card-body">
-                     <h5 class="card-title text-center">Filtrar por número</h5>
-                     <input  class="form-control mr-2"size="12" type="text" name="search" id="search" placeholder="Ingresar número">
-                     <button class="btn btn-success">Buscar</button>
-                     <button href="/usuario" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-primary">Volver</button>
-                </div>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <form class="d-flex">
+
+                <select name="seleccionar" class="form-control me-2" aria-label="Default select example">
+                    <option selected>Buscar por...</option>
+                    <option value="1">Buscar por número</option>
+                    <option value="2">Buscar por tipo</option>
+
+                </select>
+
+                <input name="buscarpor" class="form-control me-2" type="search" placeholder="Ingresa el dato" aria-label="Search">
+
+
+
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
             </div>
-         </div>
+        </nav>
     </div>
 
     <table class="table table-hover">
