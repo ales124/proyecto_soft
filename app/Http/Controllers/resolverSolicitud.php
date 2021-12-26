@@ -13,8 +13,10 @@ class resolverSolicitud extends Controller
 
 
 
+        $users=User::where('carrera_id', $id)->get();
         $user = User::where('carrera_id', $id)->with('carrera')->with('solicitudes')->first();
-        return view('resolverSolicitudes\resolver')->with('user',$user);
+
+        return view('resolverSolicitudes\resolver')->with('user',$user)->with('users',$users);
 
     }
 
