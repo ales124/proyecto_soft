@@ -67,7 +67,7 @@
                     <small class="text-muted">Permite visualizar todas las solicitudes de caracter "Pendiente".</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
+                    <a href={{ url('resolver/'.Auth::user()->carrera_id) }}  style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
 

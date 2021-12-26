@@ -33,11 +33,12 @@ class BuscarEstudianteController extends Controller
     public function index(){
 
         return view('buscar-estudiante.index');
-        echo "Hola mundo";
+
     }
 
     public function verDatosSolicitud (String $id, String $alumno_id){
 
+        //co nesto obetenemos los datos de la solicitud con la ids
         $getUser = User::where('id', $id)->firstOrFail()->getSolicitudId($alumno_id)->first();
         return view('datosSolicitud.index')->with('solicitud',$getUser);
     }

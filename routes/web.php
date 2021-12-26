@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\cargaMasiva;
 use App\Http\Controllers\AnularSolicitudController;
-
+use  App\Http\Controllers\resolverSolicitud;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +47,8 @@ Route::middleware(['rutasAlumno'])->group(function () {
 
 Route::get('cargamasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
 Route::post('cargamasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
+
+Route::get('resolver/{carrera_id}',[resolverSolicitud::class, 'index'])->name('resolver');
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
 Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');
