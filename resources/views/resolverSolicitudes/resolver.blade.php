@@ -34,9 +34,6 @@
                 <th style="width: 10%" scope="col">Rut</th>
                 <th style="width: 10%" scope="col">Nombre</th>
                 <th style="width: 10%" scope="col">Tipo de la solicitud</th>
-                <th style="width: 20%" scope="col">Correo</th>
-                <th style="width: 10%" scope="col">Teléfono</th>
-                <th style="width: 10%" scope="col">Detalle</th>
                 <th style="width: 10%" scope="col">Acción</th>
             </tr>
         </thead>
@@ -58,11 +55,8 @@
                 <td>{{$user->rut}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$solicitud->tipo}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$solicitud->getOriginal()['pivot_telefono']}}</td>
-                <td>{{$solicitud->getOriginal()['pivot_detalles']}}</td>
 
-                <td><a style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info" href= "" >Ver</a></td>
+                <td><a style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info" href= {{ url('ver/'.$user->rut.'/'. $solicitud->getOriginal()['pivot_id'] ) }}  >Ver</a></td>
                 @endif
 
         </tr>

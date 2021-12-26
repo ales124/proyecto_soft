@@ -48,7 +48,12 @@ Route::middleware(['rutasAlumno'])->group(function () {
 Route::get('cargamasiva',[cargaMasiva::class, 'index'])->name('CargaMasiva');
 Route::post('cargamasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasiva');
 
+
+
 Route::get('resolver/{carrera_id}',[resolverSolicitud::class, 'index'])->name('resolver');
+Route::get('ver/{rut}/{id}',[resolverSolicitud::class, 'devolverEstudiante'])->name('ver');
+
+
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
 Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');
