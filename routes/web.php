@@ -7,6 +7,7 @@ use App\Http\Controllers\DeshabilitarUsuarioController;
 use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\EstadisticaController;
 use App\Models\Solicitud;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -59,7 +60,7 @@ Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index'
 Route::post('alumno',[BuscarEstudianteController::class, 'devolverEstudiante'])->name('postBuscarEstudiante');
 Route::get('alumno/{id}', [BuscarEstudianteController::class,'mostrarEstudiante'])->name('mostrarEstudiante');
 Route::get('alumno/{alumno_id}/solicitud/{id}', [BuscarEstudianteController::class, 'verDatosSolicitud'])->name('verSolicitudAlumno');
-
+Route::get('estadisticas', [EstadisticaController::class, 'showEstadistica'])->name('estadisitica');
 Auth::routes();
 
 

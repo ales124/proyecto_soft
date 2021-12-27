@@ -13,6 +13,7 @@ class BuscarEstudianteController extends Controller
         $findUser = User::where('rut', $request->rut)->first();
 
         if (isset($findUser)) {
+
             if ($findUser->rol == "Alumno") {
                 return redirect(route('mostrarEstudiante',['id' => $findUser->id]));
             }else {

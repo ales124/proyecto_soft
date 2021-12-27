@@ -78,7 +78,7 @@
                     <small class="text-muted">Permite visualizar mediante gráficos las distintas solicitudes del sistema.</small>
                 </div>
                 <div class="card-footer">
-                    <a href="" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
+                    <a href="/estadisticas" style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info btn-block">Ingresar</a>
                 </div>
             </div>
         </div>
