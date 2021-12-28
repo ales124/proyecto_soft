@@ -98,6 +98,7 @@
                         Rechazada
                     </div>
                 </td>
+                @break
                 @case(4)
                 <td>
                     <div class="alert alert-danger" role="alert">

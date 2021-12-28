@@ -74,6 +74,7 @@
                         Rechazada
                     </div>
                 </td>
+                @break
                 @case(4)
                 <td>
                     <div class="alert alert-danger" role="alert">
@@ -91,7 +92,7 @@
                     <form class="anularr" method="POST" action="{{route('anular')}}">
                         @csrf
                         <input type="text" value="{{$solicitud->getOriginal()['pivot_id'] }}" name="id" hidden>
-                        <button type="sumbit" class="btn btn-info anular" 
+                        <button type="sumbit" class="btn btn-info anular"
                             style="color: white; background-color: grey; border-color:grey">Anular</button>
                     </form>
                 </td>
@@ -125,7 +126,7 @@
                         window.location.href = '/home'
                     })
                 }
-    
+
     const button = document.getElementsByClassName('anular');
     const form = document.getElementsByClassName('anularr');
 
@@ -148,7 +149,7 @@
             })
         })
     }
-    
+
 </script>
 
 

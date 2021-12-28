@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Solicitud;
+use App\Mail\EstadoUsuarioCorreo;
+use Illuminate\Support\Facades\Mail;
 
 class resolverSolicitud extends Controller
 {
@@ -41,16 +43,21 @@ class resolverSolicitud extends Controller
     ///parte resolver solicitudes
 
     public function AceptarSolicitud(Request $request ){
-        //dd($request);
+        dd($request);
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
         $array = [1,2,3,4,5,6];
         $user = User::where('id','=', $request->id)->first();
         //dd($user);
+        $solicitud=$user->solicitudes()->wherePivot('id', $request->id_solicitud)->first();
         $user->solicitudes()->wherePivot('id', $request->id_solicitud)->updateExistingPivot($array, [
             'estado' => 1
         ]);
         $user->save();
+
+        $estado=1;
+        $mensaje="";
+       Mail::to($user->email)->send(new EstadoUsuarioCorreo($user, $solicitud,$estado, $mensaje));
         //dd($array);
         return view('home')->with('Success', 'Se acepto la solicitud');
 
@@ -69,13 +76,18 @@ class resolverSolicitud extends Controller
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
         $array = [1,2,3,4,5,6];
-        $user = User::where('id','=', $id_user)->first();
-        //dd($array);
-        $user->solicitudes()->wherePivot('id', $request->id)->updateExistingPivot($array, [
+        $user = User::where('id','=', $request->id)->first();
+        //dd($user);
+        $solicitud=$user->solicitudes()->wherePivot('id', $request->id_solicitud)->first();
+        $user->solicitudes()->wherePivot('id', $request->id_solicitud)->updateExistingPivot($array, [
             'estado' => 2
         ]);
         $user->save();
-        return redirect('/solicitud');
+
+        $estado=2;
+        $mensaje=$request->observacion;
+        Mail::to($user->email)->send(new EstadoUsuarioCorreo($user, $solicitud,$estado,$mensaje));
+        return view('home')->with('Success', 'Se acepto la solicitud');
 
         //if($usuario->getSolicitudId()->estado === 0){
 
@@ -88,17 +100,22 @@ class resolverSolicitud extends Controller
 
 
     public function rechazarSolicitud(Request $request){
-        //dd($request);
+
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
         $array = [1,2,3,4,5,6];
-        $user = User::where('id','=', $id_user)->first();
-        //dd($array);
-        $user->solicitudes()->wherePivot('id', $request->id)->updateExistingPivot($array, [
+        $user = User::where('id','=', $request->id)->first();
+        //dd($user);
+        $solicitud=$user->solicitudes()->wherePivot('id', $request->id_solicitud)->first();
+        $user->solicitudes()->wherePivot('id', $request->id_solicitud)->updateExistingPivot($array, [
             'estado' => 3
         ]);
+
         $user->save();
-        return redirect('/solicitud');
+        $estado=3;
+        $mensaje=$request->observacion;
+        Mail::to($user->email)->send(new EstadoUsuarioCorreo($user, $solicitud,$estado,$mensaje));
+        return view('home')->with('Success', 'Se rechazo la solicitud');
 
         //if($usuario->getSolicitudId()->estado === 0){
 

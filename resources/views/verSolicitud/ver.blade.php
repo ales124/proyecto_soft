@@ -50,8 +50,24 @@
                                         style="color: white; background-color: grey; border-color:grey">Aceptar</button>
                                 </form>
                             </td>
-                            <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 3cm" class="btn btn-warning"href="">Anular</a></td>
-                            <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 5cm" class="btn btn-warning"href="">Anular/Observaciones</a></td>
+                            <td>
+                                <form class="aceptar2" method="POST" action="{{route('aceptar2')}}">
+                                    @csrf
+                                        <button class="btn btn-outline-secondary" type="sumbit"  style="color: white; background-color: grey; border-color:grey">Aceptar/Observaciones</button>
+                                        <input name="observacion" type="text" class="form-control" placeholder="escriba comentarios" aria-label="Example text with button addon" aria-describedby="button-addon1" value="">
+                                        <input type="text" value="{{$solicitud->getOriginal()['pivot_id']  }}" name="id_solicitud" hidden>
+                                        <input type="text" value="{{$user->id}}" name="id" hidden>
+                                </form>
+                            </td>
+                            <td>
+                                <form class="rechazar" method="POST" action="{{route('rechazar')}}">
+                                    @csrf
+                                    <button class="btn btn-outline-secondary" type="sumbit"  style="color: white; background-color: grey; border-color:grey">Rechazar/Observaciones</button>
+                                    <input name="observacion" type="text" class="form-control" placeholder="escriba comentarios" aria-label="Example text with button addon" aria-describedby="button-addon1" value="">
+                                    <input type="text" value="{{$solicitud->getOriginal()['pivot_id']  }}" name="id_solicitud" hidden>
+                                    <input type="text" value="{{$user->id}}" name="id" hidden>
+                                </form>
+                            </td>
 
 
 

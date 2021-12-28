@@ -55,6 +55,8 @@ Route::get('resolver/{carrera_id}',[resolverSolicitud::class, 'index'])->name('r
 Route::get('verOtras/{carrera_id}',[resolverSolicitud::class, 'otrasSolicitudes'])->name('verOtras');
 Route::get('ver/{rut}/{id}',[resolverSolicitud::class, 'devolverEstudiante'])->name('ver');
 route::post('aceptar',[resolverSolicitud::class,'AceptarSolicitud'])->name('aceptar');
+route::post('aceptar2',[resolverSolicitud::class,'AceptarSolicitud2'])->name('aceptar2');
+route::post('rechazar',[resolverSolicitud::class,'rechazarSolicitud'])->name('rechazar');
 
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
