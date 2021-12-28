@@ -58,12 +58,14 @@
             @foreach ($users as $user )
 
 
-            @foreach ($user->solicitudes as $solicitud)
+
+
+            @forelse ($user->solicitudes as $solicitud)
 
 
             <tr>
 
-                @if ($solicitud->pivot->estado == 0 && $user->rol=="Alumno")
+                @if ($solicitud->pivot->estado == 0 && $user->rol=="Alumno" && $user->carrera_id==$carrera_id)
                 <th scope="row">
                     {{date_format(date_create($solicitud->getOriginal()['pivot_updated_at']),"d/m/Y H:i:s") }}
                 </th>
@@ -73,23 +75,34 @@
                 <td>{{$solicitud->tipo}}</td>
 
                 <td><a style="background-color: #003057;border-color:#003057; color:white" class="btn btn-info" href= {{ url('ver/'.$user->rut.'/'. $solicitud->getOriginal()['pivot_id'] ) }}  >Ver</a></td>
+
+
                 @endif
 
             </tr>
 
 
+            @empty
+            <tr>
+                <td colspan="5">
+                    <p>No hay solicitudes ingresadas</p>
+                </td>
+            </tr>
+
+            @endforelse
 
             @endforeach
 
 
-            @endforeach
+            <td><a style="background-color: #bebebe; border-color:#020202; width: 4cm" class="btn btn-warning"href={{ url('verOtras/'.$user->carrera_id ) }}>Ver otras Solicitudes</a></td>
+
+
+
         </tbody>
+
+
+
+
     </table>
-
 </div>
-
-<div class="container">
-
-</div>
-
 @endsection
