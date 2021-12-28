@@ -10,11 +10,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-3 col-md-2"></div>
-        <div class="col-lg-6 col-md-6 mt-3 login-box">
-            <div class="col-12">
-                <div class="login-title">Solicitud</div>
+
                 <table class="table table-striped">
                     <thead>
                         <th style="width: 10%" scope="col">Fecha solicitud</th>
@@ -22,7 +18,7 @@
                         <th style="width: 10%" scope="col">Rut</th>
                         <th style="width: 10%" scope="col">Nombre</th>
                         <th style="width: 10%" scope="col">Tipo de la solicitud</th>
-                        <th style="width: 20%" scope="col">Correo</th>
+                        <th style="width: 10%" scope="col">Correo</th>
                         <th style="width: 10%" scope="col">Teléfono</th>
                         <th style="width: 10%" scope="col">Detalle</th>
                         <th style="width: 10%" scope="col">Acción</th>
@@ -43,6 +39,22 @@
                             <td>{{$user->email}}</td>
                             <td>{{$solicitud->getOriginal()['pivot_telefono']}}</td>
                             <td>{{$solicitud->getOriginal()['pivot_detalles']}}</td>
+
+
+                            <td>
+                                <form class="aceptar" method="POST" action="{{route('aceptar')}}">
+                                    @csrf
+                                    <input type="text" value="{{$solicitud->getOriginal()['pivot_id']  }}" name="id_solicitud" hidden>
+                                    <input type="text" value="{{$user->id}}" name="id" hidden>
+                                    <button type="sumbit" class="btn btn-info anular"
+                                        style="color: white; background-color: grey; border-color:grey">Aceptar</button>
+                                </form>
+                            </td>
+                            <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 3cm" class="btn btn-warning"href="">Anular</a></td>
+                            <td><a style="background-color: #FFAA4D; border-color:#FFAA4D; width: 5cm" class="btn btn-warning"href="">Anular/Observaciones</a></td>
+
+
+
                           @endif
                         </tr>
                         @empty
@@ -56,10 +68,7 @@
 
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-2"></div>
-    </div>
+
 
 
 

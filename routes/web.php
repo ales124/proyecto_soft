@@ -52,8 +52,9 @@ Route::post('cargamasiva', [cargaMasiva::class, 'importExcel'])->name('cargaMasi
 
 
 Route::get('resolver/{carrera_id}',[resolverSolicitud::class, 'index'])->name('resolver');
+Route::get('verOtras/{carrera_id}',[resolverSolicitud::class, 'otrasSolicitudes'])->name('verOtras');
 Route::get('ver/{rut}/{id}',[resolverSolicitud::class, 'devolverEstudiante'])->name('ver');
-
+route::post('aceptar',[resolverSolicitud::class,'AceptarSolicitud'])->name('aceptar');
 
 
 Route::get('buscar-estudiante', function(){return view('buscar-estudiante.index');})->name('buscarEstudiante');
