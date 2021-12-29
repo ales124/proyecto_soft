@@ -102,7 +102,7 @@ class resolverSolicitud extends Controller
         $estado=2;
         $mensaje=$request->observacion;
         Mail::to($user->email)->send(new EstadoUsuarioCorreo($user, $solicitud,$estado,$mensaje));
-        return view('home')->with('Success', 'Se acepto la solicitud');
+        return view('home')->with('success', 'Se acepto la solicitud');
 
         //if($usuario->getSolicitudId()->estado === 0){
 
@@ -134,7 +134,7 @@ class resolverSolicitud extends Controller
         $estado=3;
         $mensaje=$request->observacion;
         Mail::to($user->email)->send(new EstadoUsuarioCorreo($user, $solicitud,$estado,$mensaje));
-        return view('home')->with('Success', 'Se rechazo la solicitud');
+        return view('home')->with('success', 'Se rechazo la solicitud');
 
         //if($usuario->getSolicitudId()->estado === 0){
 

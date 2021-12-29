@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 @if (request()->session()->get('password') == 'updated')
     <div class="container">
         <div class="alert alert-success d-flex align-items-center" role="alert">
