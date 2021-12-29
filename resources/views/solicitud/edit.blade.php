@@ -374,6 +374,18 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label class="form-control-label">ARCHIVOS</label>
+                                <textarea id="adjunto "  type="text" class="form-control @error('adjunto') is-invalid @enderror"
+                                    name="adjunto" required disabled>{{ $solicitud->getOriginal()['pivot_archivos'] }}</textarea>
+
+                                @error('adjunto')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
                             <div class="form-group" id="groupAdjunto">
                                 <label class="form-control-label">ADJUNTAR ARCHIVO</label>
                                 <input id="adjunto" type="file" class="form-control @error('adjunto') is-invalid @enderror"
