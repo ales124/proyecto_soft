@@ -23,8 +23,6 @@ class SolicitudController extends Controller
     {
         $solicitudesAlumno = Auth::user()->solicitudes;
         return view('solicitud.index')->with('solicitudes', $solicitudesAlumno);
-
-
     }
 
     /**
@@ -62,10 +60,10 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
-                //-------------------------------------
                 case '2':
                     $request->validate([
                         'telefono' => ['regex:/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/','required','max:8','min:8'],
@@ -83,7 +81,7 @@ class SolicitudController extends Controller
                         'nombre_asignatura' => $request->nombre,
                         'detalles' => $request->detalle
                     ]);
-                    return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                    return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                         break;
 
                 //-------------------------------------
@@ -104,7 +102,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
                 //-------------------------------------
 
@@ -125,7 +123,7 @@ class SolicitudController extends Controller
                     'nombre_asignatura' => $request->nombre,
                     'detalles' => $request->detalle
                 ]);
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
                 //-------------------------------------
@@ -148,7 +146,7 @@ class SolicitudController extends Controller
                     'detalles' => $request->detalle,
                     'cant_ayudantias' => $request->cantidad
                 ]);
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
                 //-------------------------------------
@@ -170,9 +168,7 @@ class SolicitudController extends Controller
 
 
                 if(!$request->adjunto){
-
-
-                    return redirect('/solicitud')->with('error','No ingreso ningun archivo');
+                    return redirect('/solicitud')->with('error','No ingresó ningún archivo');
                 }
 
 
@@ -246,7 +242,7 @@ class SolicitudController extends Controller
                     'nombre_profesor' => $request->profesor,
                     'archivos' => json_encode($datos),
                 ]);
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
 
                 break;
             default:
@@ -338,7 +334,7 @@ class SolicitudController extends Controller
                         $solicitud->pivot->save();
                     }
                 }
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
             case '3':
@@ -360,7 +356,7 @@ class SolicitudController extends Controller
                         $solicitud->pivot->save();
                     }
                 }
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
 
@@ -383,7 +379,7 @@ class SolicitudController extends Controller
                         $solicitud->pivot->save();
                     }
                 }
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
             case '5':
@@ -405,7 +401,7 @@ class SolicitudController extends Controller
                         $solicitud->pivot->save();
                     }
                 }
-                return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 break;
 
             case '6':
@@ -435,7 +431,7 @@ class SolicitudController extends Controller
                         'nombre_profesor' => $request->profesor,
                         'archivos' => 0,
                     ]);
-                    return redirect('/solicitud')->with('success','Solicitud ingresada con éxito');
+                    return redirect('/solicitud')->with('success','Se ha registrado la solicitud con éxito.');
                 }
 
                 foreach ($request->adjunto as $file) {
@@ -444,7 +440,7 @@ class SolicitudController extends Controller
                 if($aux2>3){
 
 
-                    return redirect('/solicitud')->with('error', 'ingreso mas de 3 archivos');
+                    return redirect('/solicitud')->with('error', 'ingresó más de 3 archivos');
                 }
 
                 foreach ($request->adjunto as $file) {

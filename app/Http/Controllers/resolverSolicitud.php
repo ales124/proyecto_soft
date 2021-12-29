@@ -11,14 +11,24 @@ use Illuminate\Support\Facades\Mail;
 
 class resolverSolicitud extends Controller
 {
-    public function index(String $id){
+    public function index(String $id, Request $request){
 
+        $id = $request -> buscartipo;
+        $numero = $request -> buscarnumero;
 
+        if($id != null){
+            $users = User::where('rol', "Alumno")-> with(array('solicitudes' => function ($query) use ($id){
+                $query->wherePivot('solicitud_id', $id)->wherePivot('estado',0);
+            }))->get();
+        }elseif ($numero != null) {
+            $users = User::where('rol', "Alumno")-> with(array('solicitudes' => function ($query) use ($numero){
+                $query->wherePivot('id', $numero);
+            }))->get();
 
-        $users=User::where('rol', "Alumno")->with('solicitudes')->get();
-        $user = User::where('carrera_id', $id)->with('carrera')->with('solicitudes')->first();
-
-        return view('resolverSolicitudes\resolver')->with('user',$user)->with('users',$users)->with('carrera_id', $id);
+        }else{
+            $users = User::where('rol', "Alumno")->with('solicitudes')->get();
+        }
+        return view('resolverSolicitudes.resolver')->with('users',$users)->with('carrera_id',$id)->with('error', 'El tipo de solicitud no existe.');
 
     }
 

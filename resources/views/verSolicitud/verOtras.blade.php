@@ -11,27 +11,31 @@
         </div>
 
         <div class="col col-7">
-            <p class="text-center" style="font-size: x-large">Otras Solicitudes</p>
+            <p class="text-center" style="font-size: x-large">Solicitudes</p>
         </div>
+        <div>
+            <label class="text-right" style="width: 110px;">Filtrar solicitud</label>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-              <form class="d-flex">
-
-                <select name="seleccionar" class="form-control me-2" aria-label="Default select example">
-                    <option selected>Buscar por...</option>
-                    <option value="1">Buscar por número</option>
-                    <option value="2">Buscar por tipo</option>
-
-                </select>
-
-                <input name="buscarpor" class="form-control me-2" type="search" placeholder="Ingresa el dato" aria-label="Search">
-
-
-
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form>
+                <form method="GET" action={{ route('resolver', ['carrera_id'=>Auth::user()->carrera_id]) }} class="d-flex">
+                    <select name="buscartipo" class="form-control me-2" aria-label="Default select example" name="tipo" id="tipo">
+                        <option value={{ null }}>Buscar por tipo</option>
+                        <option value="1" @if (old('tipo')=="1") selected @endif>Solicitud de sobrecupo</option>
+                        <option value="2" @if (old('tipo')=="2") selected @endif>Solicitud de cambio de paralelo</option>
+                        <option value="3" @if (old('tipo')=="3") selected @endif>Solicitud de eliminación de asignatura</option>
+                        <option value="4" @if (old('tipo')=="4") selected @endif>Solicitud de inscripción de asignatura</option>
+                        <option value="5" @if (old('tipo')=="5") selected @endif>Solicitud de ayudantía</option>
+                        <option value="6" @if (old('tipo')=="6") selected @endif>Solicitud de facilidades académicas</option>
+                    </select>
+                    <button class="btn btn-success" style="background-color: #003057;border-color:#003057; color:white" type="submit">Buscar</button>
+                    <div class="d-flex">
+                        <input name="buscarnumero" class="form-control me-2" type="search" placeholder="Número" aria-label="Search">
+                        <button class="btn btn-success" style="background-color: #003057;border-color:#003057; color:white" type="submit">Buscar</button>
+                    </div>
+                </form>
             </div>
         </nav>
+        </div>
     </div>
 
     <table class="table table-hover">
@@ -52,12 +56,12 @@
 
         <tbody>
 
-            @foreach ($users as $user )
+            @forelse ($users as $user )
 
 
 
 
-            @forelse ($user->solicitudes as $solicitud)
+            @foreach ($user->solicitudes as $solicitud)
 
 
             <tr>
@@ -119,16 +123,21 @@
             </tr>
 
 
-            @empty
-            <tr>
-                <td colspan="5">
-                    <p>No hay solicitudes ingresadas</p>
-                </td>
-            </tr>
 
-            @endforelse
 
             @endforeach
+
+
+            @empty
+                <tr>
+                    <td colspan = "6">
+                        <p>No hay solicitudes por resolver.</p>
+                    </td>
+                </tr>
+
+
+
+            @endforelse
 
 
 
