@@ -6,7 +6,7 @@
   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Ayuda del Sistema Web
+        Ayuda del sistema Web UCN
       </h3>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">

@@ -6,7 +6,7 @@
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900">
-                <h5 class="card-title">Descripción de Roles del sistema</h5>
+                <h5 class="card-title">Descripción de roles del sistema UCN</h5>
                 <p class="card-text">Cada interacción del sistema en general, responde bajo a ciertas condiciones que el rol asignado le permite acceder.
                     Por ejemplo: </p>
                 <div class="container">

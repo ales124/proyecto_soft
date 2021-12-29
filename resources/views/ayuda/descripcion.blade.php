@@ -6,7 +6,7 @@
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900">
-                <h5 class="card-title">Descripción del Sistema Web</h5>
+                <h5 class="card-title">Descripción del Sistema Web UCN</h5>
                 <p class="card-text"> Presentar el siguiente Sistema Web UCN solicitado por el cliente Italo Donoso a travéz del documento ERS, reuniones, etc.</p>
         </div>
     </div>

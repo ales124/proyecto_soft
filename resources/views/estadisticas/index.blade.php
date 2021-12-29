@@ -40,41 +40,35 @@
                 </div>
               </div>
               <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Estado "Rechazado":</div>
+                <div class="card-header">Estado "Rechazada":</div>
                 <div class="card-body text-dark">
                   <p class="card-text">La cantidad de solicidtudes estado "Rechazado": {{($totalRechazada)}}</p>
                   <p class="card-text">Porcentaje: {{($PerctotalRechazada)}}%</p>
                 </div>
               </div>
               <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Estado "Aceptado":</div>
+                <div class="card-header">Estado "Aceptada":</div>
                 <div class="card-body text-dark">
                   <p class="card-text">La cantidad de solicitudes estado "Aceptado": {{($totalAceptada)}}</p>
                   <p class="card-text">Porcentaje: {{($PerctotalAceptada)}}%</p>
                 </div>
               </div>
               <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Estado "Aceptado con Obs":</div>
+                <div class="card-header">Estado "Aceptada con obs.":</div>
                 <div class="card-body text-dark">
                   <p class="card-text">La cantidad de solicitudes estado "Aceptado con Observaciones": {{($totalAceptadaObs)}}</p>
                   <p class="card-text">Porcentaje: {{($PerctotalAceptadaObs)}}%</p>
                 </div>
-              </div>
-              <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Estado "Rechazado":</div>
-                <div class="card-body text-dark">
-                  <p class="card-text">La cantidad de solicitudes estado "Rechazado": {{($totalRechazada)}}</p>
-                  <p class="card-text">Porcentaje: {{($PerctotalRechazada)}}%</p>
+            </div>
+
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Anulada":</div>
+                    <div class="card-body text-dark">
+                        <p class="card-text">La cantidad de solicitudes estado "Anulado": {{($totalAnulada)}}</p>
+                        <p class="card-text">Porcentaje: {{($PerctotalAnulada)}}%</p>
+                    </div>
                 </div>
-              </div>
-              <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Estado "Anulado":</div>
-                <div class="card-body text-dark">
-                  <p class="card-text">La cantidad de solicitudes estado "Anulado": {{($totalAnulada)}}</p>
-                  <p class="card-text">Porcentaje: {{($PerctotalAnulada)}}%</p>
-                </div>
-              </div>
-        </div>
+            </div>
         </div>
     </div>
 </div>
