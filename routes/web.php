@@ -73,3 +73,20 @@ Route::post('/change-password',[ChangePasswordController::class, 'changePassword
 
 Route::get('/status-user-change', [DeshabilitarUsuarioController::class, 'deshabilitarUsuario'])->name('changeStatus');
 Route::get('/resetPassword', [resetPassword::class, 'resetearContraseña'])->name('resetPassword');
+
+
+Route::get('/help', function () {
+    return view('layouts.help');
+})->name('help');
+
+Route::get('/iniciar', function () {
+    return view('ayuda.iniciar');
+})->name('iniciar');
+
+Route::get('/descripcion', function () {
+    return view('ayuda.descripcion');
+})->name('descripcion');
+
+Route::get('/definroles', function () {
+    return view('ayuda.definroles');
+})->name('definroles');

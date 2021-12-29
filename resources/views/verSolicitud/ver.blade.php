@@ -8,10 +8,10 @@
         <div class="col col-3">
             <a href="/carrera" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Atrás') }}</a>
         </div>
-    </div>
+    </div >
 
 
-                <table class="table table-striped">
+                <table style="margin: 0 auto;" class="table table-striped">
                     <thead>
                         <th style="width: 10%" scope="col">Fecha solicitud</th>
                         <th style="width: 10%" scope="col">Número solicitud</th>
@@ -49,7 +49,7 @@
                                     <button type="sumbit" class="btn btn-info anular"
                                         style="color: white; background-color: grey; border-color:grey">Aceptar</button>
                                 </form>
-                            </td>
+                            </td><br>
                             <td>
                                 <form class="aceptar2" method="POST" action="{{route('aceptar2')}}">
                                     @csrf
@@ -58,7 +58,7 @@
                                         <input type="text" value="{{$solicitud->getOriginal()['pivot_id']  }}" name="id_solicitud" hidden>
                                         <input type="text" value="{{$user->id}}" name="id" hidden>
                                 </form>
-                            </td>
+                            </td><br>
                             <td>
                                 <form class="rechazar" method="POST" action="{{route('rechazar')}}">
                                     @csrf
@@ -67,11 +67,11 @@
                                     <input type="text" value="{{$solicitud->getOriginal()['pivot_id']  }}" name="id_solicitud" hidden>
                                     <input type="text" value="{{$user->id}}" name="id" hidden>
                                 </form>
-                            </td>
+                            </td><br>
 
 
 
-                          @endif
+                        @endif
                         </tr>
                         @empty
                         <tr>

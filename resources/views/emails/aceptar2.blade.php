@@ -1,1 +1,1 @@
-Estimado estudiante {{$usuario->name}} su sulicitud numero {{$solicitud->id}} a sido aceptada con la siguiente observacion: {{$mensaje}}
+Estimado estudiante {{$usuario->name}} su solicitud número {{$solicitud->id}} ha sido aceptada con la siguiente observación: {{$mensaje}}
