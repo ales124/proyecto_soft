@@ -90,3 +90,6 @@ Route::get('/descripcion', function () {
 Route::get('/definroles', function () {
     return view('ayuda.definroles');
 })->name('definroles');
+
+Route::get('estadisticas', [EstadisticaController::class, 'showEstadistica'])->name('estadisitica');
+Route::post('/estadisticas', [EstadisticaController::class, 'showEstadistica1']);

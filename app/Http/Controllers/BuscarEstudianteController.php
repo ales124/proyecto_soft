@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class BuscarEstudianteController extends Controller
 {
     public function devolverEstudiante(Request $request){
 
-        //select * from user where rut = $rut
-        $findUser = User::where('rut', $request->rut)->first();
+        $carrera_currentUser = Auth::user()->carrera_id; //Accedes a la carrera del usuario logeado (Jefe de Carrera)
+        $findUser = User::where('rut', $request->rut)->where('carrera_id', $carrera_currentUser)->first();
 
         if (isset($findUser)) {
 
             if ($findUser->rol == "Alumno") {
                 return redirect(route('mostrarEstudiante',['id' => $findUser->id]));
-            }else {
-                return redirect('buscar-estudiante')->with('error', 'El rut ingresado no es Alumno.');
             }
         }else {
-            return redirect('buscar-estudiante')->with('error', 'Alumno no encontrado.');
+            return redirect('buscar-estudiante')->with('error', 'Usuario no encontrado');
         }
     }
 

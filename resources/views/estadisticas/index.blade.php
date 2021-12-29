@@ -1,34 +1,123 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="col-lg-12 py-3">
+    <div class="col-lg-12 text-center">
+        @if (session('error'))
+   <div class="alert alert-danger">
+        {{ session('error') }}
+   </div>
+@endif
+    </div>
+</div>
 <div class="container">
-    <input type="date">
     <h1 style="font-size: 50px" class="text-center">Estadísticas del sistema</h1>
     <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
-            <div class="card h-100" style="width: 1150px; height:500px;">
+            <div class="card h-100" style="width: 1100px; height:500px;">
                 <div class="card-body">
-                    <div id="chartContainerTipo" style="width: 1100px; height: 400px;"></div>
+                    <div id="chartContainerTipo" style="width: 1050px; height: 400px;"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3">
-        <div class="col mb-4">
-            <div class="card h-100" style="width: 1150px; height:500px;">
-                <div class="card-body">
-                    <div id="chartContainerStatus" style="width: 1100px; height: 400px;"></div>
-                </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h1>La cantidad de solicitudes dentro del rango seleccionado es: {{$cantRango}}</h1>
             </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">{{ __('Solicitudes por estado') }}</div>
+        <div class="card-body">
+           <div class="row justify-content-center">
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Pendiente":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicidtudes estado "Pendiente": {{($totalPendiente)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalPendiente)}}%</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Rechazado":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicidtudes estado "Rechazado": {{($totalRechazada)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalRechazada)}}%</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Aceptado":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicitudes estado "Aceptado": {{($totalAceptada)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalAceptada)}}%</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Aceptado con Obs":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicitudes estado "Aceptado con Observaciones": {{($totalAceptadaObs)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalAceptadaObs)}}%</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Rechazado":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicitudes estado "Rechazado": {{($totalRechazada)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalRechazada)}}%</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Estado "Anulado":</div>
+                <div class="card-body text-dark">
+                  <p class="card-text">La cantidad de solicitudes estado "Anulado": {{($totalAnulada)}}</p>
+                  <p class="card-text">Porcentaje: {{($PerctotalAnulada)}}%</p>
+                </div>
+              </div>
+        </div>
         </div>
     </div>
 </div>
 
+
+<div class= "col-lg-12 login-form">
+    <div class = "col-lg-12 login-form">
+        <form id="formulario" method="POST" action=""
+        enctype="multipart/form-data">
+        @csrf
+        <div class= "container">
+            <p class="text">Desde</p>
+            <input type="date" id="prueba1" class="form-control @error('Tipo') is-invalid @enderror" name="prueba1"
+            value="{{ old('Tipo')}}" autocomplete="numero" autofocus>
+
+            @error('numero')
+            <span class="invalid-feedback" role="alert">
+                <strong> {{$message}}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class= "container">
+            <p class="text">Hasta</p>
+            <input type="date" id="prueba2" class="form-control @error('Tipo2') is-invalid @enderror" name="prueba2"
+            value="{{ old('Tipo2')}}" autocomplete="numero" autofocus>
+
+            @error('numero')
+            <span class="invalid-feedback" role="alert">
+                <strong> {{$message}}</strong>
+            </span>
+            @enderror
+        </div>
+
+          <div class="col-lg-12 py-3">
+            <div class="col-lg-12 text-center">
+                <button style="background-color: #003057;border-color:#003057; color:white" id="buttom" class="btn btn-outline-primary">{{ __('Filtrar') }}</button>
+            </div>
+         </div>
+        </form>
 <script>
     var chart = new CanvasJS.Chart("chartContainerTipo", {
     animationEnabled: true,
-    theme: "light1", // "light1", "light2", "dark1", "dark2"
+    theme: "light1",
     title:{
     text: "Solicitudes por tipo"
     },
@@ -52,31 +141,7 @@
     ]
     }]
     });
-    var chart2 = new CanvasJS.Chart("chartContainerStatus", {
-    animationEnabled: true,
-    title:{
-    text: "Solicitudes por estado",
-    },
-    axisY: {
-		suffix: "%"
-	},
-	data: [
-		{
-			type: "stackedColumn",
-			indexLabel: "{y}",
-            yValueFormatString: "#,##0\"%\"",
-			toolTipContent: "{y}",
-    dataPoints: [
-    { y: JSON.parse("{{json_encode($totalPendiente)}}"), label: "Pendiente" },
-    { y: JSON.parse("{{json_encode($totalRechazada)}}"), label: "Rechazada" },
-    { y: JSON.parse("{{json_encode($totalAceptada)}}"), label: "Aceptada" },
-    { y: JSON.parse("{{json_encode($totalAceptadaObs)}}"), label: "Aceptada con obs." },
-    { y: JSON.parse("{{json_encode($totalAnulada)}}"), label: "Anulada" },
-    ]
-    }]
-    });
     chart.render();
-    chart2.render();
 </script>
 
 @endsection
