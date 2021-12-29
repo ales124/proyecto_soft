@@ -43,7 +43,7 @@ class resolverSolicitud extends Controller
     ///parte resolver solicitudes
 
     public function AceptarSolicitud(Request $request ){
-        dd($request);
+        //dd($request);
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
         $array = [1,2,3,4,5,6];
@@ -72,6 +72,11 @@ class resolverSolicitud extends Controller
 
 
     public function AceptarSolicitud2(Request $request){
+
+        if($request->observacion==""){
+
+            return view('home')->with('error', 'no se agregaron observaciones');
+        }
         //dd($request);
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
@@ -101,6 +106,10 @@ class resolverSolicitud extends Controller
 
     public function rechazarSolicitud(Request $request){
 
+        if($request->observacion==""){
+
+            return view('home')->with('error', 'no se agregaron observaciones');
+        }
         //$usuario = User::where('id',$request->id)->get()->first();
         $id_user = Auth::user()->id;
         $array = [1,2,3,4,5,6];
