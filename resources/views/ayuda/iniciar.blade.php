@@ -11,7 +11,7 @@
                     se explica el como poder interactuar correctamente dentro del sistema con sus distintas funcionalidades. </p>
                 <div class="col-lg-12 py-3">
                     <div class="col-lg-12 text-center">
-                        <a href=https://drive.google.com/drive/folders/1pdqAK5oDwPHUKmCL8LZn_uFkVqpcjZfM?usp=sharing target="_blank" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Acceder a videos de ayuda') }}</a>
+                        <a href=https://drive.google.com/drive/folders/1u9GZBj3z0PnoNFDIRP5uGmz7OLEnYLUA target="_blank" style="background-color: #003057;border-color:#003057; color:white" type="button" id="boton" class="btn btn-outline-primary">{{ __('Acceder a videos de ayuda') }}</a>
                     </div>
                 </div>
                 </form>
