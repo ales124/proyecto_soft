@@ -61,13 +61,13 @@ class EstadisticaController extends Controller
                     case 0:
                         $totalPendiente++;
                         break;
-                    case 1:
+                    case 3:
                         $totalRechazada++;
                         break;
-                    case 2:
+                    case 1:
                         $totalAceptada++;
                         break;
-                    case 3:
+                    case 2:
                         $totalAceptadaObs++;
                         break;
                     case 4:

@@ -56,9 +56,10 @@
 
         <tbody>
 
-            @forelse ($users as $user)
+            @foreach ($users as $user)
             @foreach ($user->solicitudes as $solicitud)
 
+            @if ($solicitud->pivot->estado == 0)
             <tr>
 
                 <th scope="row">
@@ -74,18 +75,16 @@
 
             </tr>
 
+            @endif
+
+
 
 
             @endforeach
-            @empty
 
-                <tr>
-                    <td colspan = "6">
-                        <p>No hay solicitudes por resolver.</p>
-                    </td>
-                </tr>
 
-            @endforelse
+
+            @endforeach
 
 
             <td><a style="background-color: #bebebe; border-color:#020202; width: 4cm" class="btn btn-warning"href={{ url('verOtras/'.$user->carrera_id ) }}>Ver otras Solicitudes</a></td>
